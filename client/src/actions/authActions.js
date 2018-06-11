@@ -34,7 +34,7 @@ export const loginUser = userData => dispatch => {
     })
     .catch(err => 
       dispatch({
-        type: GET-ERRORS,
+        type: GET_ERRORS,
         payload: err.response.data
       })
     );

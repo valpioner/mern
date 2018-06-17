@@ -170,7 +170,8 @@ class Map extends Component {
       this.map.mapTypes.set(MY_MAPTYPE_ID, styledMap);
       this.map.setMapTypeId(MY_MAPTYPE_ID);
 
-      const polyFlightsOptions = {
+      const polyFlightsOptions = {        
+        geodesic: true, 
         strokeColor: '#5A8DBE',//'#58BB7A',
         strokeOpacity: 1.0,
         strokeWeight: 1,

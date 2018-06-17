@@ -73,11 +73,11 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
         { lat: 10.762622, long: 106.660172 }
       ],
       [
-        { lat: 50.4021702, long: 30.3926088 },
+        { lat: 50.448853, long: 30.513346 },
         { lat: 27.1927403, long: 33.6416265 }
       ],
       [
-        { lat: 50.4021702, long: 30.3926088 },
+        { lat: 50.448853, long: 30.513346 },
         { lat: 34.9014389, long: 33.5852154 }
       ],
       [
@@ -85,7 +85,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
         { lat: 36.8980543, long: 30.6480653 }
       ],
       [
-        { lat: 50.4021702, long: 30.3926088 },
+        { lat: 50.448853, long: 30.513346 },
         { lat: 52.3547322, long: 4.8285837 },
         { lat: 63.269458, long: 10.739231 }
       ]

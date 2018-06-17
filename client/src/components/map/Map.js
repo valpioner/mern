@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import ReactDOM from 'react-dom';
 import PropTypes from "prop-types";
+import { connect } from 'react-redux';
+import { getUserMap } from '../../actions/mapActions';
+import Spinner from '../common/Spinner';
 
 class Map extends Component {
   constructor(props) {
@@ -15,9 +18,18 @@ class Map extends Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.map.userMap !== null && !nextProps.map.loading) {
+      this.loadMap(nextProps.map.userMap);
+    }
+  }
+
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.google !== this.props.google) {
       this.loadMap();
+    }
+    if (prevState.currentLocation !== this.state.currentLocation) {
+      this.recenterMap();
     }
     if (prevState.currentLocation !== this.state.currentLocation) {
       this.recenterMap();
@@ -51,10 +63,11 @@ class Map extends Component {
         })
       }
     }
-    this.loadMap();
+
+    this.props.getUserMap(this.props.auth.user.id);
   }
 
-  loadMap() {
+  loadMap(userMap) {
     if (this.props && this.props.google) {
       // google is available
       const { google } = this.props;
@@ -66,9 +79,9 @@ class Map extends Component {
       let { initialCenter, zoom } = this.props;
       const { lat, lng } = this.state.currentLocation;
       const MY_MAPTYPE_ID = 'kickasstrip_style';
-      const center = new maps.LatLng(lat, lng);
+      const center = new maps.LatLng(lat, lng);     
 
-      var mapStyles = [
+      const mapStyles = [
         {
           featureType: "water",
           stylers: [
@@ -152,32 +165,53 @@ class Map extends Component {
         },
       });
 
-      var styledMap = new maps.StyledMapType(mapStyles, { name: "KickAssTrip" });
+      const styledMap = new maps.StyledMapType(mapStyles, { name: "KickAssTrip" });
       this.map = new maps.Map(node, mapConfig);
       this.map.mapTypes.set(MY_MAPTYPE_ID, styledMap);
       this.map.setMapTypeId(MY_MAPTYPE_ID);
+
+      const polyFlightsOptions = {
+        strokeColor: '#5A8DBE',//'#58BB7A',
+        strokeOpacity: 1.0,
+        strokeWeight: 1,
+        map: this.map
+      };
+
+      const polyGroundOptions = {
+        strokeColor: '#FF6300',
+        strokeOpacity: 1.0,
+        strokeWeight: 2,
+        map: this.map
+      };
+
+      for(const flightDetails of userMap.flights){
+        const path = [];
+        for(const ll of flightDetails){
+          path.push(new maps.LatLng(ll.lat, ll.long));
+        }
+        new maps.Polyline(polyFlightsOptions).setPath(path);
+      }
     }
-    // ...
   }
 
-  render() {
-    const style = {
-      height: "100%"
-    };
+  render() {   
+    const { userMap, loading } = this.props.map;   
 
     return (
-      <div ref='map' style={style}>
-        Loading map...
+      <div ref='map' style={{height: "100%"}}>
+        <Spinner />
       </div>
     )
   }
 }
 
 Map.propTypes = {
+  getUserMap: PropTypes.func.isRequired,
   google: PropTypes.object,
   zoom: PropTypes.number,
   initialCenter: PropTypes.object,
-  centerAroundCurrentLocation: PropTypes.bool
+  centerAroundCurrentLocation: PropTypes.bool,
+  map: PropTypes.object
 };
 
 Map.defaultProps = {
@@ -189,5 +223,12 @@ Map.defaultProps = {
   centerAroundCurrentLocation: false
 };
 
-export default Map;
+const mapStateToProps = state => ({
+  map: state.map,
+  auth: state.auth
+});
+
+export default connect(mapStateToProps, { getUserMap })(
+  Map
+);
 //https://www.fullstackreact.com/articles/how-to-write-a-google-maps-react-component/#the-map-container-component

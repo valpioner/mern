@@ -79,7 +79,7 @@ class Map extends Component {
       let { initialCenter, zoom } = this.props;
       const { lat, lng } = this.state.currentLocation;
       const MY_MAPTYPE_ID = 'kickasstrip_style';
-      const center = new maps.LatLng(lat, lng);     
+      const center = new maps.LatLng(lat, lng);
 
       const mapStyles = [
         {
@@ -97,7 +97,52 @@ class Map extends Component {
           stylers: [
             { visibility: "simplified" },
             { lightness: -32 },
+            { opacity: 0.2 },
             { saturation: -9 }]
+        },
+        {
+          "featureType": "road.arterial",
+          "stylers": [
+            { "visibility": "off" }
+          ]
+        },
+        {
+          "featureType": "road.highway",
+          "elementType": "geometry.fill",
+          "stylers": [
+            { "saturation": -80 },
+            { "lightness": -30 },
+            { "visibility": "simplified" },
+            { "weight": 0.5 }
+          ]
+        },
+        {
+          "featureType": "road.highway",
+          "elementType": "geometry.stroke",
+          "stylers": [
+            { "visibility": "simplified" }
+          ]
+        },
+        {
+          "featureType": "road.highway",
+          "elementType": "labels",
+          "stylers": [
+            { "visibility": "off" }
+          ]
+        },
+        {
+          "featureType": "road.local",
+          "stylers": [
+            { "visibility": "off" }
+          ]
+        },
+        {
+          "featureType": "transit",
+          "elementType": "geometry",
+          "stylers": [
+            { "color": "#000000" },
+            { "lightness": 19 }
+          ]
         },
         {
           featureType: "poi",
@@ -186,8 +231,8 @@ class Map extends Component {
         anchor: new maps.Point(300, 300)
       };
 
-      const polyFlightsOptions = {        
-        geodesic: true, 
+      const polyFlightsOptions = {
+        geodesic: true,
         strokeColor: '#5A8DBE',//'#58BB7A',
         strokeOpacity: 0,
         strokeWeight: 1,
@@ -209,13 +254,7 @@ class Map extends Component {
         map: this.map
       };
 
-      for(const flightDetails of userMap.flights){
-        // const path = [];
-        // for(const ll of flightDetails){
-        //   path.push(new maps.LatLng(ll.lat, ll.long));
-        // }
-        // new maps.Polyline(polyFlightsOptions).setPath(path);
-
+      for (const flightDetails of userMap.flights) {
         flightDetails.reduce((from, to) => {
           const path = [];
           path.push(new maps.LatLng(from.lat, from.long), new maps.LatLng(to.lat, to.long));
@@ -226,11 +265,11 @@ class Map extends Component {
     }
   }
 
-  render() {   
-    const { userMap, loading } = this.props.map;   
+  render() {
+    const { userMap, loading } = this.props.map;
 
     return (
-      <div ref='map' style={{height: "100%"}}>
+      <div ref='map' style={{ height: "100%" }}>
         <Spinner />
       </div>
     )

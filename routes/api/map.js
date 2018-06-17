@@ -48,46 +48,57 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
     user: req.user.id,
     flights: [
       [
-        { lat: 50.448853, long: 30.513346 },
-        { lat: 52.374355, long: 4.897960 },
-        { lat: 40.785091, long: -73.968285 },
-        { lat: 44.970697, long: -93.2614785 },
-        { lat: 61.217381, long: -149.863129 },
-        { lat: 37.774929, long: -122.41941 }
+        { lat: 50.448853, long: 30.513346, name: 'Kyiv' },
+        { lat: 52.3547322, long: 4.8285837, name: 'Amsterdam' },
+        { lat: 40.785091, long: -73.968285, name: 'New York' },
       ],
       [
-        { lat: 34.0204989, long: -118.4117325 },
-        { lat: 40.785091, long: -73.968285 },
-        { lat: 48.858093, long: 2.294694 },
-        { lat: 50.448853, long: 30.513346 }
+        { lat: 50.448853, long: 30.513346, name: 'Kyiv' },
+        { lat: 52.3547322, long: 4.8285837, name: 'Amsterdam' },
+        { lat: 40.785091, long: -73.968285, name: 'New York' },
+        { lat: 44.970697, long: -93.2614785, name: 'Minneapolis' },
+        { lat: 61.217381, long: -149.863129, name: 'Anchorage' }
       ],
       [
-        { lat: 50.064650, long: 19.944979 },
-        { lat: 59.924484, long: 10.705147 },
-        { lat: 45.444958, long: 12.328463 }
+        { lat: 61.217381, long: -149.863129, name: 'Anchorage' },
+        { lat: 37.774929, long: -122.41941, name: 'San Francisko' }
       ],
       [
-        { lat: 50.448853, long: 30.513346 },
-        { lat: 41.015137, long: 28.979530 },
-        { lat: 13.736717, long: 100.523186 },
-        { lat: 10.762622, long: 106.660172 }
+        { lat: 34.0204989, long: -118.4117325, name: 'Los Angeles' },
+        { lat: 40.785091, long: -73.968285, name: 'New York' },
+        { lat: 48.858093, long: 2.294694, name: 'Paris' },
+        { lat: 50.448853, long: 30.513346, name: 'Kyiv' }
       ],
       [
-        { lat: 50.448853, long: 30.513346 },
-        { lat: 27.1927403, long: 33.6416265 }
+        { lat: 50.064650, long: 19.944979, name: 'Krakow' },
+        { lat: 59.924484, long: 10.705147, name: 'Oslo' }
       ],
       [
-        { lat: 50.448853, long: 30.513346 },
-        { lat: 34.9014389, long: 33.5852154 }
+        { lat: 59.924484, long: 10.705147, name: 'Oslo' },
+        { lat: 45.444958, long: 12.328463, name: 'Venice' }
       ],
       [
-        { lat: 49.8327787, long: 23.9421962 },
-        { lat: 36.8980543, long: 30.6480653 }
+        { lat: 10.762622, long: 106.660172, name: 'Ho Chi Minh' },
+        { lat: 13.736717, long: 100.523186, name: 'Bangkok' },
+        { lat: 41.015137, long: 28.979530, name: 'Istanbul' },
+        { lat: 50.448853, long: 30.513346, name: 'Kyiv' },
       ],
       [
-        { lat: 50.448853, long: 30.513346 },
-        { lat: 52.3547322, long: 4.8285837 },
-        { lat: 63.269458, long: 10.739231 }
+        { lat: 50.448853, long: 30.513346, name: 'Kyiv' },
+        { lat: 27.1927403, long: 33.6416265, name: 'Hurgada' }
+      ],
+      [
+        { lat: 50.448853, long: 30.513346, name: 'Kyiv' },
+        { lat: 34.9014389, long: 33.5852154, name: 'Larnaka' }
+      ],
+      [
+        { lat: 49.8327787, long: 23.9421962, name: 'Lviv' },
+        { lat: 36.8980543, long: 30.6480653, name: 'Antalia' }
+      ],
+      [ 
+        { lat: 50.448853, long: 30.513346, name: 'Kiev' },
+        { lat: 52.3547322, long: 4.8285837, name: 'Amsterdam' },
+        { lat: 63.269458, long: 10.739231, name: 'Trondheim' }
       ]
     ]
   });

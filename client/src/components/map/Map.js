@@ -170,12 +170,36 @@ class Map extends Component {
       this.map.mapTypes.set(MY_MAPTYPE_ID, styledMap);
       this.map.setMapTypeId(MY_MAPTYPE_ID);
 
+      const lineSymbol = {
+        path: 'M 0,-1 0,1',
+        strokeOpacity: 1,
+        scale: 1
+      };
+
+      const planeSymbol = {
+        path: 'M362.985,430.724l-10.248,51.234l62.332,57.969l-3.293,26.145 l-71.345-23.599l-2.001,13.069l-2.057-13.529l-71.278,22.928l-5.762-23.984l64.097-59.271l-8.913-51.359l0.858-114.43 l-21.945-11.338l-189.358,88.76l-1.18-32.262l213.344-180.08l0.875-107.436l7.973-32.005l7.642-12.054l7.377-3.958l9.238,3.65 l6.367,14.925l7.369,30.363v106.375l211.592,182.082l-1.496,32.247l-188.479-90.61l-21.616,10.087l-0.094,115.684',
+        scale: 0.02,
+        strokeOpacity: 1,
+        color: '#FF6300',
+        fill: '#FF6300',
+        strokeWeight: 1,
+        anchor: new maps.Point(300, 300)
+      };
+
       const polyFlightsOptions = {        
         geodesic: true, 
         strokeColor: '#5A8DBE',//'#58BB7A',
-        strokeOpacity: 1.0,
+        strokeOpacity: 0,
         strokeWeight: 1,
-        map: this.map
+        map: this.map,
+        icons: [{
+          icon: lineSymbol,
+          offset: '0',
+          repeat: '5px'
+        }, {
+          icon: planeSymbol,
+          offset: '50%',
+        }]
       };
 
       const polyGroundOptions = {
@@ -186,11 +210,18 @@ class Map extends Component {
       };
 
       for(const flightDetails of userMap.flights){
-        const path = [];
-        for(const ll of flightDetails){
-          path.push(new maps.LatLng(ll.lat, ll.long));
-        }
-        new maps.Polyline(polyFlightsOptions).setPath(path);
+        // const path = [];
+        // for(const ll of flightDetails){
+        //   path.push(new maps.LatLng(ll.lat, ll.long));
+        // }
+        // new maps.Polyline(polyFlightsOptions).setPath(path);
+
+        flightDetails.reduce((from, to) => {
+          const path = [];
+          path.push(new maps.LatLng(from.lat, from.long), new maps.LatLng(to.lat, to.long));
+          new maps.Polyline(polyFlightsOptions).setPath(path);
+          return to;
+        });
       }
     }
   }

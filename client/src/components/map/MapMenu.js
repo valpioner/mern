@@ -10,9 +10,6 @@ class MapMenu extends Component {
   componentDidMount() {
     this.props.getUserMap(this.props.auth.user.id);
   }
-  // onDeleteClick(id) {
-  //   this.props.deleteExperience(id);
-  // }
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.map.loading && !this.props.map.loading) {
@@ -33,8 +30,6 @@ class MapMenu extends Component {
       flightCards = <Spinner />;
     } else {
       flightCards = userMap.flights.map(flight => 
-        // <PostItem key={post._id} post={post} />
-
         <div className="flight-card" key={flight[0]._id}>
           {
             flight.map(point => point.name).join(' - ')
@@ -46,7 +41,6 @@ class MapMenu extends Component {
     return (
       <div className="map-menu card card-body">
         {flightCards}
-
         <div className="row">
           <div className="">
             <a className="btn btn-info" onClick={this.handleClick}> Add Flight </a>

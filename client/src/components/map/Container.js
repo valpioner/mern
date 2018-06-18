@@ -6,10 +6,10 @@ class Container extends Component {
   render() {
     const style = {
       width: "100%",
-      height: "100vh",
+      height: "100%",
       position: "relative"
     };
-
+    
     return (
       <div style={style}>
         <Map google={this.props.google} />

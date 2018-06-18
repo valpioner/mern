@@ -1,3 +1,7 @@
+html, body, #root, .App {
+  height: 100%;
+}
+
 img {
   width: 100%;
 }
@@ -70,4 +74,8 @@ img {
 .ground-card {
   height: 50px;
   background: #FF6300;
+}
+
+.route-container > div:first-of-type {
+  height: 100%;
 }

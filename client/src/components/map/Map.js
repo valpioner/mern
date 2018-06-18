@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 import { getUserMap } from '../../actions/mapActions';
 import Spinner from '../common/Spinner';
+import MapMenu from "./MapMenu";
 
 class Map extends Component {
   constructor(props) {
@@ -27,9 +28,6 @@ class Map extends Component {
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.google !== this.props.google) {
       this.loadMap();
-    }
-    if (prevState.currentLocation !== this.state.currentLocation) {
-      this.recenterMap();
     }
     if (prevState.currentLocation !== this.state.currentLocation) {
       this.recenterMap();
@@ -269,8 +267,11 @@ class Map extends Component {
     const { userMap, loading } = this.props.map;
 
     return (
-      <div ref='map' style={{ height: "100%" }}>
-        <Spinner />
+      <div style={{ height: "100%" }}>
+        <div ref='map' style={{ height: "100%" }}>
+          <Spinner />
+        </div>
+        <MapMenu />
       </div>
     )
   }

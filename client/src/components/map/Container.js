@@ -6,7 +6,8 @@ class Container extends Component {
   render() {
     const style = {
       width: "100%",
-      height: "100vh"
+      height: "100vh",
+      position: "relative"
     };
 
     return (

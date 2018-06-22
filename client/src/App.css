@@ -71,6 +71,11 @@ img {
   margin-bottom: 5px;
 }
 
+.flight-card .fas {
+  margin: 0 10px 0 10px;
+  color: #5A8DBE;
+}
+
 .ground-card {
   height: 50px;
   background: #FF6300;

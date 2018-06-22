@@ -31,6 +31,7 @@ class MapMenu extends Component {
     } else {
       flightCards = userMap.flights.map(flight => 
         <div className="flight-card" key={flight[0]._id}>
+          <i class="fas fa-plane"></i>
           {
             flight.map(point => point.name).join(' - ')
           }

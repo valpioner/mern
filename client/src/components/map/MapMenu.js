@@ -5,6 +5,7 @@ import Moment from 'react-moment';
 import { deleteExperience } from '../../actions/profileActions';
 import { getUserMap } from '../../actions/mapActions';
 import Spinner from '../common/Spinner';
+import FlightCard from './FlightCard';
 
 class MapMenu extends Component {
   componentDidMount() {
@@ -30,12 +31,7 @@ class MapMenu extends Component {
       flightCards = <Spinner />;
     } else {
       flightCards = userMap.flights.map(flight => 
-        <div className="flight-card" key={flight[0]._id}>
-          <i class="fas fa-plane"></i>
-          {
-            flight.map(point => point.name).join(' - ')
-          }
-        </div> 
+        <FlightCard key={flight[0]._id} flight={flight} />
       );
     }
 

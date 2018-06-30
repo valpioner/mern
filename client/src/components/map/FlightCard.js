@@ -3,11 +3,15 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 class FlightCard extends Component {
-  constructor () {
-    super();
+  constructor (props) {
+    super(props);
+
     this.switchMode = this.switchMode.bind(this);
+    //this.onChange = this.onChange.bind(this);
+
     this.state = {
-      isEditMode: false
+      isEditMode: false,
+      flight: props.flight
     }
   }
 
@@ -17,31 +21,86 @@ class FlightCard extends Component {
     });
   }
 
+  onChange(e, i) {
+    //this.setState({ [e.target.name]: e.target.value });
+  }
+
   render() {
-    const { flight } = this.props;
-    const { isEditMode } = this.state;
+    //const { flight } = this.props;
+    const { isEditMode, flight } = this.state;
     let currentMode;
 
     if (isEditMode) {
       currentMode = (
-        <div>hello!</div>
+        <div>
+          <i className="fas fa-plane mb-2"></i>
+          <form>
+            <fieldset className="input-group-vertical">
+              {
+                flight.map((point, index) => 
+                  // <div className="form-group">
+                    <div className="input-group input-group-sm" key={index}>
+                      <input 
+                        type="text" 
+                        className="form-control" 
+                        placeholder="To"
+                        value={point.name}
+                        onChange={this.onChange.bind(this, index)}
+                        />
+                      <div className="input-group-append lat-long pr-2 pl-2">
+                        <small className="text-muted">
+                          {point.lat}
+                        </small>
+                        <small className="text-muted">
+                          {point.long}
+                        </small>
+                      </div>
+                      <div className="input-group-append">
+                        <button className="btn btn-outline-secondary" type="button">
+                          <i className="fas fa-times" onClick={this.removeFlightPoint}></i>
+                        </button>
+                      </div>
+                    </div>                  
+                  // </div>
+                )
+              }
+              <button className="btn btn-sm btn-outline-secondary add-flight-point" type="button" onClick={this.addFlightPoint}>
+                <i className="fas fa-plus" onClick={this.addFlightPoint}></i>
+              </button>
+            </fieldset>
+          </form>
+          <div className="btn-group btn-group-sm" role="group"      aria-label="Flight edit controls">
+            <button type="button" className="btn btn-link">
+              <i className="fas fa-check" onClick={this.switchMode}></i>
+            </button>
+            <button type="button" className="btn btn-link">
+              <i className="fas fa-times" onClick={this.switchMode}></i>
+            </button>
+          </div>
+        </div>
       );
     } else {
       currentMode = (
-        <div className="flight-card" key={flight[0]._id}>
+        <div>
           <i className="fas fa-plane"></i>
           {
             flight.map(point => point.name).join(' - ')
           }
           <br/>
-          <i className="fas fa-edit" onClick={this.switchMode}></i>
-          <i className="fas fa-trash"></i>
+          <div className="btn-group btn-group-sm" role="group" aria-label="Flight edit controls">
+            <button type="button" className="btn btn-link">
+            <i className="fas fa-edit" onClick={this.switchMode}></i>
+            </button>
+            <button type="button" className="btn btn-link">
+            <i className="fas fa-trash"></i>
+            </button>
+          </div>
         </div>
       );
     }
 
     return (
-      <div>
+      <div className="flight-card" key={flight[0]._id}>
         { currentMode }
       </div>
     )

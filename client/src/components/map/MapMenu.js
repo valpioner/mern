@@ -38,10 +38,13 @@ class MapMenu extends Component {
     return (
       <div className="map-menu card card-body">
         {flightCards}
-        <div className="row">
-          <div className="">
-            <a className="btn btn-info" onClick={this.handleClick}> Add Flight </a>
-          </div>
+        <div className="btn-group btn-group flight-menu-controls" role="group">
+          <button type="button" className="btn btn-dark" onClick={this.handleClick}>
+            Add flight
+          </button>
+          <button type="button" className="btn btn-dark">
+            Add road
+          </button>
         </div>
       </div>
     );

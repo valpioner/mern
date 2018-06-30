@@ -3,7 +3,8 @@ import axios from 'axios';
 import {
   USER_MAP_LOADING,
   GET_USER_MAP,
-  ADD_FLIGHT
+  ADD_FLIGHT,
+  SELECT_MAP_ELEMENT
 } from './types';
 
 // Get User Map
@@ -49,4 +50,12 @@ export const setUserMapLoading = () => {
   return {
     type: USER_MAP_LOADING
   };
+};
+
+// Select map element
+export const selectMapElement = data => dispatch => {
+  dispatch({
+    type: SELECT_MAP_ELEMENT,
+    payload: data
+  })
 };

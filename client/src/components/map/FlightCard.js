@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import LocationSearchInput from '../common/LocationSearchInput';
 
 class FlightCard extends Component {
   constructor (props) {
@@ -8,10 +9,13 @@ class FlightCard extends Component {
 
     this.switchMode = this.switchMode.bind(this);
     //this.onChange = this.onChange.bind(this);
+    this.addFlightPoint = this.addFlightPoint.bind(this);
+    this.cancelEdit = this.cancelEdit.bind(this);
+    this.saveFlight = this.saveFlight.bind(this);
 
     this.state = {
       isEditMode: false,
-      flight: props.flight
+      flight: props.flight // Array
     }
   }
 
@@ -25,8 +29,42 @@ class FlightCard extends Component {
     //this.setState({ [e.target.name]: e.target.value });
   }
 
+  addFlightPoint = () => {
+    const lastFlightPoint = this.state.flight.slice(-1)[0];
+    if (lastFlightPoint.lat === null || lastFlightPoint.long === null) return;
+
+    this.setState((prevState, props) => {
+      return {
+        flight: prevState.flight.concat({
+          name: '',
+          lat: null,
+          long: null
+        })
+      };
+    });
+  }
+
+  saveFlight = () => {
+    const lastFlightPoint = this.state.flight.slice(-1)[0];
+    if (lastFlightPoint.lat === null || lastFlightPoint.long === null) {
+      // TODO: show validation error
+      return;
+    }
+
+    this.switchMode();
+    // TODO: save flight to store
+  }
+
+  cancelEdit = () => {
+    this.setState((prevState, props) => {
+      return {
+        isEditMode: !prevState.isEditMode,
+        flight: props.flight
+      };
+    });
+  }
+
   render() {
-    //const { flight } = this.props;
     const { isEditMode, flight } = this.state;
     let currentMode;
 
@@ -37,16 +75,18 @@ class FlightCard extends Component {
           <form>
             <fieldset className="input-group-vertical">
               {
-                flight.map((point, index) => 
+                flight.map((point) => 
                   // <div className="form-group">
-                    <div className="input-group input-group-sm" key={index}>
-                      <input 
+                    <div className="input-group input-group-sm" key={point._id}>
+                      {/* <input 
                         type="text" 
                         className="form-control" 
                         placeholder="To"
                         value={point.name}
-                        onChange={this.onChange.bind(this, index)}
-                        />
+                        onChange={this.onChange.bind(this)}
+                        /> */}
+                      <LocationSearchInput/>
+
                       <div className="input-group-append lat-long pr-2 pl-2">
                         <small className="text-muted">
                           {point.lat}
@@ -66,15 +106,15 @@ class FlightCard extends Component {
               }
               <button className="btn btn-sm btn-outline-secondary add-flight-point" type="button" 
                   onClick={this.addFlightPoint}>
-                <i className="fas fa-plus" onClick={this.addFlightPoint}></i>
+                <i className="fas fa-plus"></i>
               </button>
             </fieldset>
           </form>
           <div className="btn-group btn-group-sm flight-card-controls__edit-mode" role="group">
-            <button type="button" className="btn btn-outline-secondary"  onClick={this.switchMode}>
+            <button type="button" className="btn btn-outline-secondary"  onClick={this.saveFlight}>
               <i className="fas fa-check"></i>
             </button>
-            <button type="button" className="btn btn-outline-secondary"  onClick={this.switchMode}>
+            <button type="button" className="btn btn-outline-secondary"  onClick={this.cancelEdit}>
               <i className="fas fa-times"></i>
             </button>
           </div>

@@ -2,11 +2,13 @@ import {
     GET_USER_MAP,
     ADD_FLIGHT,
     USER_MAP_LOADING,
+    SELECT_MAP_ELEMENT
   } from '../actions/types';
   
   const initialState = {
     userMap: null,
-    loading: false
+    loading: false,
+    selectedMapElement: null
   };
   
   export default function(state = initialState, action) {
@@ -26,6 +28,11 @@ import {
         return {
           ...state,
           flights: [action.payload, ...state.flights]
+        };
+      case SELECT_MAP_ELEMENT:
+        return {
+          ...state,
+          selectedMapElement: action.payload
         }
       default:
         return state;

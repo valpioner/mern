@@ -18,3 +18,4 @@ export const DELETE_POST = 'DELETE_POST';
 export const GET_USER_MAP = 'GET_USER_MAP';
 export const ADD_FLIGHT = 'ADD_FLIGHT';
 export const USER_MAP_LOADING = 'USER_MAP_LOADING';
+export const SELECT_MAP_ELEMENT = 'SELECT_MAP_ELEMENT';

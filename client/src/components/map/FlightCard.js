@@ -64,17 +64,18 @@ class FlightCard extends Component {
                   // </div>
                 )
               }
-              <button className="btn btn-sm btn-outline-secondary add-flight-point" type="button" onClick={this.addFlightPoint}>
+              <button className="btn btn-sm btn-outline-secondary add-flight-point" type="button" 
+                  onClick={this.addFlightPoint}>
                 <i className="fas fa-plus" onClick={this.addFlightPoint}></i>
               </button>
             </fieldset>
           </form>
-          <div className="btn-group btn-group-sm" role="group"      aria-label="Flight edit controls">
-            <button type="button" className="btn btn-link">
-              <i className="fas fa-check" onClick={this.switchMode}></i>
+          <div className="btn-group btn-group-sm flight-card-controls__edit-mode" role="group">
+            <button type="button" className="btn btn-outline-secondary"  onClick={this.switchMode}>
+              <i className="fas fa-check"></i>
             </button>
-            <button type="button" className="btn btn-link">
-              <i className="fas fa-times" onClick={this.switchMode}></i>
+            <button type="button" className="btn btn-outline-secondary"  onClick={this.switchMode}>
+              <i className="fas fa-times"></i>
             </button>
           </div>
         </div>
@@ -87,11 +88,11 @@ class FlightCard extends Component {
             flight.map(point => point.name).join(' - ')
           }
           <br/>
-          <div className="btn-group btn-group-sm" role="group" aria-label="Flight edit controls">
-            <button type="button" className="btn btn-link">
-            <i className="fas fa-edit" onClick={this.switchMode}></i>
+          <div className="btn-group btn-group-sm flight-card-controls__view-mode" role="group">
+            <button type="button" className="btn btn-outline-secondary"  onClick={this.switchMode}>
+            <i className="fas fa-edit"></i>
             </button>
-            <button type="button" className="btn btn-link">
+            <button type="button" className="btn btn-outline-secondary"  onClick={this.removeFlight}>
             <i className="fas fa-trash"></i>
             </button>
           </div>

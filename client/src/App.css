@@ -58,7 +58,7 @@ img {
   position: absolute;
   top: 15px;
   left: 15px;
-  background: rgba(21,32,40,1); /*14,22,27*/
+  background: rgba(21,32,40,.9); /*14,22,27*/
   /* opacity: 0.9; */
   overflow-y: overlay;
 }
@@ -129,4 +129,9 @@ img {
 
 .add-flight-point {
   width: 100%;
+}
+
+.flight-card-controls__edit-mode .btn,
+.flight-card-controls__view-mode .btn {
+  border: none;
 }

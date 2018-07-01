@@ -85,7 +85,9 @@ class FlightCard extends Component {
                         value={point.name}
                         onChange={this.onChange.bind(this)}
                         /> */}
-                      <LocationSearchInput/>
+                      <LocationSearchInput onSelect={
+                        (selected) => console.log('selected: ', selected)
+                      }/>
 
                       <div className="input-group-append lat-long pr-2 pl-2">
                         <small className="text-muted">

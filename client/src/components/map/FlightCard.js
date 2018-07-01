@@ -12,6 +12,7 @@ class FlightCard extends Component {
     this.addFlightPoint = this.addFlightPoint.bind(this);
     this.cancelEdit = this.cancelEdit.bind(this);
     this.saveFlight = this.saveFlight.bind(this);
+    this.onSelect = this.onSelect.bind(this);
 
     this.state = {
       isEditMode: false,
@@ -27,6 +28,24 @@ class FlightCard extends Component {
 
   onChange(e, i) {
     //this.setState({ [e.target.name]: e.target.value });
+  }
+
+  onSelect(selected, i) {
+    if (selected.errorMessage) {
+      //TODO: hanlde error
+      return;
+    }
+
+    let flight = [...this.state.flight];
+    let flightPoint = {
+      ...flight[i],
+      name: selected.address,
+      lat: selected.lat,
+      long: selected.long
+    };
+    flight[i] = flightPoint;
+
+    this.setState({flight});
   }
 
   addFlightPoint = () => {
@@ -75,7 +94,7 @@ class FlightCard extends Component {
           <form>
             <fieldset className="input-group-vertical">
               {
-                flight.map((point) => 
+                flight.map((point, i) => 
                   // <div className="form-group">
                     <div className="input-group input-group-sm" key={point._id}>
                       {/* <input 
@@ -85,9 +104,8 @@ class FlightCard extends Component {
                         value={point.name}
                         onChange={this.onChange.bind(this)}
                         /> */}
-                      <LocationSearchInput onSelect={
-                        (selected) => console.log('selected: ', selected)
-                      }/>
+                      <LocationSearchInput onSelect={(selected) => this.onSelect(selected, i)}
+                      />
 
                       <div className="input-group-append lat-long pr-2 pl-2">
                         <small className="text-muted">

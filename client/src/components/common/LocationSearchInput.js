@@ -73,7 +73,7 @@ class LocationSearchInput extends React.Component {
           <div className="places-autocomplete">
             <input
               {...getInputProps({
-                placeholder: 'Search Places ...',
+                placeholder: 'Search or tap on map..',
                 className: 'location-search-input form-control form-control',
               })}
             />

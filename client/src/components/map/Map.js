@@ -71,6 +71,14 @@ class Map extends Component {
       const { google } = this.props;
       const maps = google.maps;
 
+      maps.Polyline.prototype.getBounds = function() {
+        var bounds = new google.maps.LatLngBounds();
+        this.getPath().forEach(function(item, index) {
+            bounds.extend(new google.maps.LatLng(item.lat(), item.lng()));
+        });
+        return bounds;
+      };
+
       const mapRef = this.refs.map;
       const node = ReactDOM.findDOMNode(mapRef);
 
@@ -213,6 +221,8 @@ class Map extends Component {
       this.map.mapTypes.set(MY_MAPTYPE_ID, styledMap);
       this.map.setMapTypeId(MY_MAPTYPE_ID);
 
+      var bounds = new google.maps.LatLngBounds();
+
       const lineSymbol = {
         path: 'M 0,-1 0,1',
         strokeOpacity: 1,
@@ -256,10 +266,17 @@ class Map extends Component {
         flightDetails.reduce((from, to) => {
           const path = [];
           path.push(new maps.LatLng(from.lat, from.long), new maps.LatLng(to.lat, to.long));
-          new maps.Polyline(polyFlightsOptions).setPath(path);
+          let polyline = new maps.Polyline(polyFlightsOptions);
+          polyline.setPath(path);
+          this.map.fitBounds(polyline.getBounds());
           return to;
         });
       }
+      
+
+      //this.map.fitBounds(a.bounds);
+
+
     }
   }
 

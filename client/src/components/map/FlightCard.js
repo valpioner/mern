@@ -8,7 +8,6 @@ class FlightCard extends Component {
     super(props);
 
     this.switchMode = this.switchMode.bind(this);
-    //this.onChange = this.onChange.bind(this);
     this.addFlightPoint = this.addFlightPoint.bind(this);
     this.cancelEdit = this.cancelEdit.bind(this);
     this.saveFlight = this.saveFlight.bind(this);
@@ -24,10 +23,6 @@ class FlightCard extends Component {
     this.setState((prevState) => {
       return {isEditMode: !prevState.isEditMode};
     });
-  }
-
-  onChange(e, i) {
-    //this.setState({ [e.target.name]: e.target.value });
   }
 
   onSelect(selected, i) {
@@ -97,22 +92,13 @@ class FlightCard extends Component {
                 flight.map((point, i) => 
                   // <div className="form-group">
                     <div className="input-group input-group-sm" key={point._id}>
-                      {/* <input 
-                        type="text" 
-                        className="form-control" 
-                        placeholder="To"
-                        value={point.name}
-                        onChange={this.onChange.bind(this)}
-                        /> */}
-                      <LocationSearchInput onSelect={(selected) => this.onSelect(selected, i)}
-                      />
-
+                      <LocationSearchInput onSelect={(selected) => this.onSelect(selected, i)}/>
                       <div className="input-group-append lat-long pr-2 pl-2">
                         <small className="text-muted">
-                          {point.lat}
+                          {parseFloat(point.lat.toFixed(7))}
                         </small>
                         <small className="text-muted">
-                          {point.long}
+                          {parseFloat(point.long.toFixed(7))}
                         </small>
                       </div>
                       <div className="input-group-append">

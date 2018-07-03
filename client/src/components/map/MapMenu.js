@@ -6,8 +6,24 @@ import { deleteExperience } from '../../actions/profileActions';
 import { getUserMap } from '../../actions/mapActions';
 import Spinner from '../common/Spinner';
 import FlightCard from './FlightCard';
+import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
 
 class MapMenu extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: '',
+      errors: {}
+    };
+
+    this.onChange = this.onChange.bind(this);
+    //this.onSubmit = this.onSubmit.bind(this);
+  }
+
+  onChange(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
+
   componentDidMount() {
     this.props.getUserMap(this.props.auth.user.id);
   }
@@ -38,12 +54,38 @@ class MapMenu extends Component {
     return (
       <div className="map-menu card card-body">
         {flightCards}
+        
+        <div className="new-trip-form">
+          <div className="card card-info">
+            <div className="card-header bg-info text-white">Say Somthing...</div>
+            <div className="card-body">
+              <form onSubmit={this.onSubmit}>
+                <div className="form-group">
+                  <TextAreaFieldGroup
+                    placeholder="Create a post"
+                    name="text"
+                    value={this.state.text}
+                    onChange={this.onChange}
+                    //error={errors.text}
+                  />
+                </div>
+                <button type="submit" className="btn btn-dark">
+                  Submit
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+
         <div className="btn-group btn-group flight-menu-controls" role="group">
-          <button type="button" className="btn btn-dark" onClick={this.handleClick}>
+          {/* <button type="button" className="btn btn-dark" onClick={this.handleClick}>
             Add flight
           </button>
           <button type="button" className="btn btn-dark">
             Add road
+          </button> */}
+          <button type="button" className="btn btn-dark">
+            Add new trip
           </button>
         </div>
       </div>

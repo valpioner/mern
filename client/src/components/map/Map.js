@@ -268,14 +268,14 @@ class Map extends Component {
           path.push(new maps.LatLng(from.lat, from.long), new maps.LatLng(to.lat, to.long));
           let polyline = new maps.Polyline(polyFlightsOptions);
           polyline.setPath(path);
-          this.map.fitBounds(polyline.getBounds());
+          //this.map.fitBounds(polyline.getBounds());
           return to;
         });
-      }
-      
+      }   
 
-      //this.map.fitBounds(a.bounds);
-
+      // centerFlight = (flight) => {
+      //   //TODO: clear map from all elements
+      // }
 
     }
   }

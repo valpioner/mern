@@ -162,3 +162,7 @@ img {
 .suggestion-item--active {
   background-color: #fafafa;
 }
+
+.new-trip-form {
+  display: block;
+}

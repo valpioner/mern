@@ -5,6 +5,7 @@ const passport = require('passport');
 
 // UserMap model
 const Post = require('../../models/UserMap');
+const Trip = require('../../models/map/Trip');
 
 // @route   GET api/map/test
 // @desc    Tests map route
@@ -32,6 +33,50 @@ router.get('/:user_id',  (req, res) => {
       );
   }
 );
+
+// @route   GET api/trips/:user_id
+// @desc    Get post by user ID
+// @access  Public
+router.get('/trips/:user_id',  (req, res) => {
+  const errors = {};
+
+  Trip.find({ user: req.params.user_id })
+    // .populate('user', ['name', 'avatar'])
+    .then(trips => {
+      if (!trips) {
+        errors.notrips = 'There are no trips for this user';
+        res.status(404).json(errors);
+      }
+
+      res.json(trips);
+    })
+    .catch(err => 
+      res.status(404).json({map: 'There is no map for this user'})
+    );
+}
+);
+
+// @route   POST api/map/addTrip
+// @desc    Create trip
+// @access  Private
+router.post('/addTrip', passport.authenticate('jwt', { session: false }), (req, res) => {
+  //const { errors, isValid } = validatePostInput(req.body);
+
+  // // Check Validation
+  // if (!isValid) {
+  //   // If any errors, send 400 with errors object
+  //   return res.status(400).json(errors);
+  // }
+
+  const newTrip = new Trip({
+    name: req.body.name,
+    desc: req.body.desc,
+    //avatar: req.body.avatar,
+    user: req.user.id
+  });
+
+  newTrip.save().then(trip => res.json(trip));
+});
 
 // @route   POST api/map
 // @desc    Create empty user map

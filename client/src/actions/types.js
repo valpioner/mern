@@ -16,6 +16,8 @@ export const ADD_POST = 'ADD_POST';
 export const DELETE_POST = 'DELETE_POST';
 
 export const GET_USER_MAP = 'GET_USER_MAP';
+export const GET_USER_TRIPS = 'GET_USER_TRIPS';
 export const ADD_FLIGHT = 'ADD_FLIGHT';
+export const ADD_TRIP = 'ADD_TRIP';
 export const USER_MAP_LOADING = 'USER_MAP_LOADING';
 export const SELECT_MAP_ELEMENT = 'SELECT_MAP_ELEMENT';

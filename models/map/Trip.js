@@ -19,6 +19,25 @@ const TripSchema = new Schema({
   isPlanned: {
     type: Boolean
   },
+  airPathes: [
+    [
+      {
+        lat: {
+          type: Number,
+          required: true
+        },
+        long: {
+          type: Number,
+          required: true
+        },
+        name: String,
+        desc: String
+      }
+    ]
+  ],
+  groudPathes: [
+    
+  ],
   dateCreated: {
     type: Date,
     default: Date.now

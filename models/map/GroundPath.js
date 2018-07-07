@@ -47,7 +47,7 @@ const GroundPathSchema = new Schema({
       }
     }
   ],
-  date: {
+  dateCreated: {
     type: Date,
     default: Date.now
   }

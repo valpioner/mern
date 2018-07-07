@@ -63,6 +63,11 @@ img {
   overflow-y: overlay;
 }
 
+.trip-card {
+  display: block;
+  color: gray;
+}
+
 .flight-card {
   border-left: 5px solid #5A8DBE;
   border-top: 5px;

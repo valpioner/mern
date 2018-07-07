@@ -2,7 +2,8 @@ import {
     GET_USER_MAP,
     ADD_FLIGHT,
     USER_MAP_LOADING,
-    SELECT_MAP_ELEMENT
+    SELECT_MAP_ELEMENT,
+    GET_USER_TRIPS
   } from '../actions/types';
   
   const initialState = {
@@ -22,6 +23,12 @@ import {
         return {
           ...state,
           userMap: action.payload,
+          loading: false
+        };
+      case GET_USER_TRIPS:
+        return {
+          ...state,
+          trips: action.payload,
           loading: false
         };
       case ADD_FLIGHT:

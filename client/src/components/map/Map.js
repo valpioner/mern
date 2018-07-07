@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from "prop-types";
 import { connect } from 'react-redux';
 import { getUserMap } from '../../actions/mapActions';
+import { getUserTrips } from '../../actions/mapActions';
 import Spinner from '../common/Spinner';
 import MapMenu from "./MapMenu";
 
@@ -63,6 +64,7 @@ class Map extends Component {
     }
 
     this.props.getUserMap(this.props.auth.user.id);
+    this.props.getUserTrips(this.props.auth.user.id);
   }
 
   loadMap(userMap) {
@@ -296,6 +298,7 @@ class Map extends Component {
 
 Map.propTypes = {
   getUserMap: PropTypes.func.isRequired,
+  getUserTrips: PropTypes.func.isRequired,
   google: PropTypes.object,
   zoom: PropTypes.number,
   initialCenter: PropTypes.object,
@@ -317,7 +320,7 @@ const mapStateToProps = state => ({
   auth: state.auth
 });
 
-export default connect(mapStateToProps, { getUserMap })(
+export default connect(mapStateToProps, { getUserMap, getUserTrips })(
   Map
 );
 //https://www.fullstackreact.com/articles/how-to-write-a-google-maps-react-component/#the-map-container-component

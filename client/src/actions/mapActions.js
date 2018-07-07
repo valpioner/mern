@@ -3,7 +3,9 @@ import axios from 'axios';
 import {
   USER_MAP_LOADING,
   GET_USER_MAP,
+  GET_USER_TRIPS,
   ADD_FLIGHT,
+  ADD_TRIP,
   SELECT_MAP_ELEMENT
 } from './types';
 
@@ -26,6 +28,25 @@ export const getUserMap = userId => dispatch => {
     );
 };
 
+// Get User Trips
+export const getUserTrips = userId => dispatch => {
+  dispatch(setUserMapLoading());
+  axios
+    .get(`/api/map/trips/${userId}`)
+    .then(res =>
+      dispatch({
+        type: GET_USER_TRIPS,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: GET_USER_TRIPS,
+        payload: null
+      })
+    );
+};
+
 // Add Post
 export const addFlight = postData => dispatch => {
   //dispatch(clearErrors());
@@ -40,6 +61,25 @@ export const addFlight = postData => dispatch => {
     .catch(err =>
       dispatch({
         type: ADD_FLIGHT,
+        payload: err.response.data
+      })
+    );
+};
+
+// Add Trip
+export const addTrip = postData => dispatch => {
+  //dispatch(clearErrors());
+  axios
+    .post('/api/map/addTrip', postData)
+    .then(res =>
+      dispatch({
+        type: ADD_TRIP,
+        payload: res.data
+      })
+    )
+    .catch(err =>
+      dispatch({
+        type: ADD_TRIP,
         payload: err.response.data
       })
     );

@@ -95,10 +95,10 @@ class FlightCard extends Component {
                       <LocationSearchInput onSelect={(selected) => this.onSelect(selected, i)}/>
                       <div className="input-group-append lat-long pr-2 pl-2">
                         <small className="text-muted">
-                          {parseFloat(point.lat.toFixed(7))}
+                          {point.lat ? parseFloat(point.lat.toFixed(7)) : null}
                         </small>
                         <small className="text-muted">
-                          {parseFloat(point.long.toFixed(7))}
+                          {point.long ? parseFloat(point.long.toFixed(7)) : null}
                         </small>
                       </div>
                       <div className="input-group-append">
@@ -110,6 +110,29 @@ class FlightCard extends Component {
                   // </div>
                 )
               }
+              <button className="btn btn-sm btn-outline-secondary add-flight-point" type="button" 
+                  onClick={this.addFlightPoint}>
+                <i className="fas fa-plus"></i>
+              </button>
+            </fieldset>
+          </form>
+          <div className="btn-group btn-group-sm flight-card-controls__edit-mode" role="group">
+            <button type="button" className="btn btn-outline-secondary"  onClick={this.saveFlight}>
+              <i className="fas fa-check"></i>
+            </button>
+            <button type="button" className="btn btn-outline-secondary"  onClick={this.cancelEdit}>
+              <i className="fas fa-times"></i>
+            </button>
+          </div>
+        </div>
+      );
+    } else if (!flight) {
+      currentMode = (
+        <div>
+          <i className="fas fa-plane mb-2"></i>
+          <form>
+            <fieldset className="input-group-vertical">
+              
               <button className="btn btn-sm btn-outline-secondary add-flight-point" type="button" 
                   onClick={this.addFlightPoint}>
                 <i className="fas fa-plus"></i>
@@ -147,7 +170,7 @@ class FlightCard extends Component {
     }
 
     return (
-      <div className="flight-card" key={flight[0]._id}>
+      <div className="flight-card" /*key={flight[0]._id}*/>
         { currentMode }
       </div>
     )
@@ -155,7 +178,7 @@ class FlightCard extends Component {
 }
 
 FlightCard.propTypes = {
-  flight: PropTypes.array.isRequired //Lviv-Kyiv-Odessa
+  flight: PropTypes.array, //Lviv-Kyiv-Odessa
 };
 
 const mapStateToProps = state => ({

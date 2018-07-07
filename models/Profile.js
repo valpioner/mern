@@ -111,7 +111,7 @@ const ProfileSchema = new Schema({
       type: String
     },
   },
-  date: {
+  dateCreated: {
     type: Date,
     default: Date.now
   }

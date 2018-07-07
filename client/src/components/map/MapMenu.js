@@ -7,6 +7,9 @@ import { getUserMap } from '../../actions/mapActions';
 import Spinner from '../common/Spinner';
 import FlightCard from './FlightCard';
 import TextAreaFieldGroup from '../common/TextAreaFieldGroup';
+import InputGroup from '../common/InputGroup';
+import TripForm from './TripForm';
+import TripCard from './TripCard';
 
 class MapMenu extends Component {
   constructor(props) {
@@ -17,11 +20,16 @@ class MapMenu extends Component {
     };
 
     this.onChange = this.onChange.bind(this);
-    //this.onSubmit = this.onSubmit.bind(this);
+    // this.onSubmit = this.onSubmit.bind(this);
   }
 
   onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  onChange(e) {
+    console.log('submitted');
+    //this.setState({ [e.target.name]: e.target.value });
   }
 
   componentDidMount() {
@@ -40,54 +48,28 @@ class MapMenu extends Component {
   }
 
   render() {
-    const { userMap, loading } = this.props.map;
+    const { userMap, loading, trips } = this.props.map;
     let flightCards;
+    let tripCards;
 
-    if (userMap === null || loading) {
+    if (userMap === null || loading || !trips) {
       flightCards = <Spinner />;
+      tripCards = <Spinner />;
     } else {
       flightCards = userMap.flights.map(flight => 
         <FlightCard key={flight[0]._id} flight={flight} />
+      );
+
+      tripCards = trips.map(trip => 
+        <TripCard key={trip._id} trip={trip} />
       );
     }
 
     return (
       <div className="map-menu card card-body">
         {flightCards}
-        
-        <div className="new-trip-form">
-          <div className="card card-info">
-            <div className="card-header bg-info text-white">Say Somthing...</div>
-            <div className="card-body">
-              <form onSubmit={this.onSubmit}>
-                <div className="form-group">
-                  <TextAreaFieldGroup
-                    placeholder="Create a post"
-                    name="text"
-                    value={this.state.text}
-                    onChange={this.onChange}
-                    //error={errors.text}
-                  />
-                </div>
-                <button type="submit" className="btn btn-dark">
-                  Submit
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-
-        <div className="btn-group btn-group flight-menu-controls" role="group">
-          {/* <button type="button" className="btn btn-dark" onClick={this.handleClick}>
-            Add flight
-          </button>
-          <button type="button" className="btn btn-dark">
-            Add road
-          </button> */}
-          <button type="button" className="btn btn-dark">
-            Add new trip
-          </button>
-        </div>
+        {tripCards}
+        <TripForm />
       </div>
     );
   }

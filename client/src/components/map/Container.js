@@ -1,19 +1,17 @@
 import React, { Component } from "react";
 import Map from "./Map";
 import { GoogleApiWrapper } from "google-maps-react";
+import MapMenu from "./MapMenu";
 
 class Container extends Component {
   render() {
-    const style = {
-      width: "100%",
-      height: "100%",
-      position: "relative"
-    };
     
     return (
-      <div style={style}>
-        <Map google={this.props.google} />
+      <div class="map-container">
+      <MapMenu />
+      <Map google={this.props.google} />
       </div>
+        
     );
   }
 }

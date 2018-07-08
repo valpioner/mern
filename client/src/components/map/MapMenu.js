@@ -66,7 +66,10 @@ class MapMenu extends Component {
     }
 
     return (
-      <div className="map-menu card card-body">
+      <div className="map-menu color-wet-asphalt">
+        <div class="user-photo">
+
+        </div>
         {flightCards}
         {tripCards}
         <TripForm />

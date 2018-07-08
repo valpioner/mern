@@ -93,12 +93,12 @@ class Map extends Component {
         {
           featureType: "water",
           stylers: [
-            { color: "#1C2B35" }]
+            { color: "#34495E" }]
         },
         {
           featureType: "landscape",
           stylers: [
-            { color: "#2b3943" }]
+            { color: "#586A7B" }]
         },
         {
           featureType: "road",
@@ -218,7 +218,7 @@ class Map extends Component {
         },
       });
 
-      const styledMap = new maps.StyledMapType(mapStyles, { name: "KickAssTrip" });
+      const styledMap = new maps.StyledMapType(/*mapStyles, */{ name: "KickAssTrip" });
       this.map = new maps.Map(node, mapConfig);
       this.map.mapTypes.set(MY_MAPTYPE_ID, styledMap);
       this.map.setMapTypeId(MY_MAPTYPE_ID);
@@ -286,11 +286,8 @@ class Map extends Component {
     const { userMap, loading } = this.props.map;
 
     return (
-      <div style={{ height: "100%" }}>
-        <div ref='map' style={{ height: "100%" }}>
-          <Spinner />
-        </div>
-        <MapMenu />
+      <div class="map" ref='map' style={{ height: "100%" }}>
+        <Spinner />
       </div>
     )
   }

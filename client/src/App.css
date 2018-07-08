@@ -1,5 +1,6 @@
 html, body, #root, .App {
   height: 100%;
+  width: 100%;
 }
 
 img {
@@ -14,12 +15,12 @@ img {
   height: 100vh;
 }
 
-.dark1 {
-  background-color: #152028;
+.color-wet-asphalt {
+  background-color: #34495E;
 }
 
-.dark2 {
-  background-color: #0E161B;
+.color-midnight-blue {
+  background-color: #2C3E50;
 }
 
 .orange1 {
@@ -53,14 +54,11 @@ img {
 }
 
 .map-menu {
-  width: 500px;
-  height: 90%;
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  background: rgba(21,32,40,.9); /*14,22,27*/
+  width: 800px;
+  height: 100%;
+  /* position: absolute; */
   /* opacity: 0.9; */
-  overflow-y: overlay;
+  overflow-y: scroll;
 }
 
 .trip-card {
@@ -170,4 +168,22 @@ img {
 
 .new-trip-form {
   display: block;
+}
+
+.map-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+}
+
+.user-photo {
+  height: 250px;
+  background-image: url("img/user.jpg");
+  background-size: cover;
 }

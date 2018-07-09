@@ -7,9 +7,9 @@ class Container extends Component {
   render() {
     
     return (
-      <div class="map-container">
-      <MapMenu />
-      <Map google={this.props.google} />
+      <div className="map-container">
+        <MapMenu />
+        <Map google={this.props.google} />
       </div>
         
     );

@@ -286,7 +286,7 @@ class Map extends Component {
     const { userMap, loading } = this.props.map;
 
     return (
-      <div class="map" ref='map' style={{ height: "100%" }}>
+      <div className="map" ref='map'>
         <Spinner />
       </div>
     )

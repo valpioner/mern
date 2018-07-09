@@ -67,7 +67,7 @@ class MapMenu extends Component {
 
     return (
       <div className="map-menu color-wet-asphalt">
-        <div class="user-photo">
+        <div className="user-photo">
 
         </div>
         {flightCards}

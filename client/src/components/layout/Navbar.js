@@ -42,7 +42,7 @@ class Navbar extends Component {
               className="rounded-circle"
               src={user.avatar}
               alt={user.name}
-              style={{ width: '25px', marginRight: '5px' }}
+              style={{ width: '40px', marginRight: '5px' }}
               title="You must have a Gravatar connected to your email to display an image"
             />{' '}
             Logout
@@ -67,7 +67,7 @@ class Navbar extends Component {
     );
 
     return (
-      <nav className="navbar navbar-expand-sm color-wet-asphalt">
+      <nav className="navbar navbar-expand-sm color--white">
         <div className="container">
           <Link className="navbar-brand" to="/">
             MyMaps 0.1

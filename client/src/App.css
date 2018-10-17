@@ -4,9 +4,108 @@ html, body, #root, .App {
 }
 
 .App {
-  background-color: #ecf0f1;
+  background-color: #f0f0f0;
+  color: #474D5D;
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
+}
+
+.main {
+  width: 100%;
+}
+
+/* Colors: -----------------------------------------------------------------------------------------------------------*/
+
+.color--text-light {
+  color: #d1d1d1;
+}
+
+.color--text-dark {
+  color: #474D5D;
+}
+
+.color--gray1 {
+  background-color: #303745;
+}
+
+.color--gray2 {
+  background-color: #484f5e;
+}
+
+.color--gray3 {
+  background-color: #79849b;
+}
+
+.color--white {
+  background-color: #fff;
+}
+
+.color--light1 {
+  background-color: #f6f1ed;
+}
+
+.color--orange {
+  background-color: #FF6300;
+}
+
+/* Green Color theme: http://www. bitpubl imedia. ro/themes/sapphire-wp/services/ */
+.color--green1 {
+  background-color: #0fae8e;
+}
+
+.color--green2 {
+  background-color: #0cc2aa;
+}
+
+.color--green2 {
+  background-color: #6fd589;
+}
+
+.color--violet {
+  background-color: #9b4dca;
+}
+
+.color-wet-asphalt {
+  background-color: #34495E;
+}
+
+.color-midnight-blue {
+  background-color: #2C3E50;
+}
+
+/* Sidebar: --------------------------------------------------------------------------------------------------------- */
+
+.sidebar {
+  overflow: scroll;
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+  min-height: 100% !important;
+  background-color: #303745;
+  color: #474D5D;
+
+  min-width: 220px;
+  max-width: 220px;
+  min-height: 100vh;
+}
+
+.sidebar-logo {
+  font-weight: 500;
+  font-size: 1.15rem;
+  padding: 1.15rem 1.25rem;
+  color: #f8f9fa;
+  display: block;  
+}
+
+.sidebar-logo .feather {
+  color: #0fae8e;
+  height: 24px;
+  width: 24px;
+  margin-left: -.15rem;
+  margin-right: .375rem;
+}
+
+.align-middle {
+  vertical-align: middle !important;
 }
 
 img {
@@ -19,18 +118,6 @@ img {
   background-size: cover;
   background-position: center;
   height: 100vh;
-}
-
-.color-wet-asphalt {
-  background-color: #34495E;
-}
-
-.color-midnight-blue {
-  background-color: #2C3E50;
-}
-
-.orange1 {
-  background-color: #FF6300;
 }
 
 .landing-inner {
@@ -91,13 +178,13 @@ img {
 }
 
 .route-container {
-  height: 100%;
-  width: 70%;
+  /* height: 100%; */
+  /* width: 70%;
   margin: 0 auto;
-  margin-top: 20px; 
+  margin-top: 20px;  */
   margin-bottom: 20px; 
   border-radius: 10px;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .route-container > div:first-of-type {

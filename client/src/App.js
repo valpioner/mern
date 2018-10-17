@@ -11,6 +11,7 @@ import store from "./store";
 import PrivateRoute from "./components/common/PrivateRoute";
 
 import Navbar from "./components/layout/Navbar";
+import Sidebar from "./components/layout/Sidebar";
 import Footer from "./components/layout/Footer";
 import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
@@ -56,56 +57,64 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Navbar />
-            <Route exact path="/" component={Landing} />
-            <div className="route-container">
-              <Route exact path="/register" component={Register} />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/profiles" component={Profiles} />
-              <Route exact path="/profile/:handle" component={Profile} />
-              <Switch>
-                <PrivateRoute exact path="/dashboard" component={Dashboard} />
-              </Switch>
-              <Switch>
-                <PrivateRoute exact path="/map" component={Container} />
-              </Switch>
-              <Switch>
-                <PrivateRoute
-                  exact
-                  path="/create-profile"
-                  component={CreateProfile}
-                />
-              </Switch>
-              <Switch>
-                <PrivateRoute
-                  exact
-                  path="/edit-profile"
-                  component={EditProfile}
-                />
-              </Switch>
-              <Switch>
-                <PrivateRoute
-                  exact
-                  path="/add-experience"
-                  component={AddExperience}
-                />
-              </Switch>
-              <Switch>
-                <PrivateRoute
-                  exact
-                  path="/add-education"
-                  component={AddEducation}
-                />
-              </Switch>
-              <Switch>
-                <PrivateRoute exact path="/feed" component={Posts} />
-              </Switch>
-              <Switch>
-                <PrivateRoute exact path="/post/:id" component={Post} />
-              </Switch>
-              <Route exact path="/not-found" component={NotFound} />
+            <Sidebar />
+            <div className="main">
+              <Navbar />
+              <main>
+                <Route exact path="/" component={Landing} />
+                <div className=/*"route-container"*/"p-3">
+                  <Route exact path="/register" component={Register} />
+                  <Route exact path="/login" component={Login} />
+                  <Route exact path="/profiles" component={Profiles} />
+                  <Route exact path="/profile/:handle" component={Profile} />
+                  <Switch>
+                    <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                  </Switch>
+                  <Switch>
+                    <PrivateRoute exact path="/map" component={Container} />
+                  </Switch>
+                  <Switch>
+                    <PrivateRoute
+                      exact
+                      path="/create-profile"
+                      component={CreateProfile}
+                    />
+                  </Switch>
+                  <Switch>
+                    <PrivateRoute
+                      exact
+                      path="/edit-profile"
+                      component={EditProfile}
+                    />
+                  </Switch>
+                  <Switch>
+                    <PrivateRoute
+                      exact
+                      path="/add-experience"
+                      component={AddExperience}
+                    />
+                  </Switch>
+                  <Switch>
+                    <PrivateRoute
+                      exact
+                      path="/add-education"
+                      component={AddEducation}
+                    />
+                  </Switch>
+                  <Switch>
+                    <PrivateRoute exact path="/feed" component={Posts} />
+                  </Switch>
+                  <Switch>
+                    <PrivateRoute exact path="/post/:id" component={Post} />
+                  </Switch>
+                  <Route exact path="/not-found" component={NotFound} />
+                </div>
+              </main>
+              <Footer />
             </div>
-            <Footer />
+            
+            
+            
           </div>
         </Router>
       </Provider>

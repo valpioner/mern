@@ -73,7 +73,7 @@ html, body, #root, .App {
   background-color: #2C3E50;
 }
 
-.feather {
+.feather, .fas {
   width: 18px;
   height: 18px;
 }
@@ -111,7 +111,7 @@ html, body, #root, .App {
   list-style: none
 }
 
-.sidebar-link .feather,.sidebar-link svg {
+.sidebar-link .feather,.sidebar-link svg,.sidebar-link .fas {
   margin-right: .75rem;
   color: #fff;
 }

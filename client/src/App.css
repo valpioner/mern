@@ -365,6 +365,13 @@ html[data-useragent*="MSIE 10.0"] .toggled.sidebar-collapsed {
   flex-basis: auto;
 }
 
+.avatar {
+  margin-top: -15px;
+  margin-bottom: -15px;
+  width: 40px;
+  height: 40px;
+}
+
 /* Hamburger--------------------------------------------------------------------------------------------------------- */
 
 .hamburger,.hamburger:after,.hamburger:before {

@@ -95,7 +95,6 @@ class Navbar extends Component {
                           className="avatar img-fluid rounded-circle"
                           src={user.avatar}
                           alt={user.name}
-                          style={{ width: '40px', marginRight: '5px' }}
                           title="You must have a Gravatar connected to your email to display an image"
                         />
                       </div>
@@ -113,7 +112,6 @@ class Navbar extends Component {
                           className="avatar img-fluid rounded-circle mr-1"
                           src={user.avatar}
                           alt={user.name}
-                          style={{ width: '40px', marginRight: '5px' }}
                           title="You must have a Gravatar connected to your email to display an image"
                         />
                       </div>
@@ -131,7 +129,6 @@ class Navbar extends Component {
                           className="avatar img-fluid rounded-circle mr-1"
                           src={user.avatar}
                           alt={user.name}
-                          style={{ width: '40px', marginRight: '5px' }}
                           title="You must have a Gravatar connected to your email to display an image"
                         />
                       </div>
@@ -149,7 +146,6 @@ class Navbar extends Component {
                           className="avatar img-fluid rounded-circle mr-1"
                           src={user.avatar}
                           alt={user.name}
-                          style={{ width: '40px', marginRight: '5px' }}
                           title="You must have a Gravatar connected to your email to display an image"
                         />
                       </div>
@@ -172,24 +168,26 @@ class Navbar extends Component {
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-settings align-middle"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
                 </span>
                 <span className="d-none d-sm-inline-block">
-                  {/* <img src="img/avatar.jpg" class="avatar img-fluid rounded-circle mr-1" alt="Chris Wood"/>  */}
                   <img
                     className="avatar img-fluid rounded-circle mr-1"
                     src={user.avatar}
                     alt={user.name}
-                    style={{ width: '40px', marginRight: '5px' }}
                     title="You must have a Gravatar connected to your email to display an image"
                   />
-                  <span className="text-dark">{user.name}</span>
+                  <span className="text-dark mr-1 ml-1">{user.name}</span>
                 </span>
               </a>
               <div className="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                <a className="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-user align-middle mr-1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Profile</a>
-                <a className="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-pie-chart align-middle mr-1"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg> Analytics</a>
+
+
+                <Link className="dropdown-item" to="/profile">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-user align-middle mr-1"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg> Profile
+                </Link>
+                {/* <a className="dropdown-item" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-pie-chart align-middle mr-1"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg> Analytics</a> */}
                 <div className="dropdown-divider"></div>
-                <a className="dropdown-item" href="#">Settings &amp; Privacy</a>
-                <a className="dropdown-item" href="#">Help</a>
-                <a className="dropdown-item" href="#">Sign out</a>
+                <Link className="dropdown-item" to="#">Settings &amp; Privacy</Link>
+                <Link className="dropdown-item" to="#">Help</Link>
+                <Link className="dropdown-item" to="#" onClick={this.onLogoutClick.bind(this)}>Sign out</Link>
               </div>
             </li>
           </ul>

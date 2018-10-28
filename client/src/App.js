@@ -19,6 +19,7 @@ import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
+import FinancialStatement from "./components/financial-statement/FinancialStatement";
 import CreateProfile from "./components/create-profile/CreateProfile";
 import EditProfile from "./components/edit-profile/EditProfile";
 import AddExperience from "./components/add-credentials/AddExperience";
@@ -73,35 +74,22 @@ class App extends Component {
                     <PrivateRoute exact path="/dashboard" component={Dashboard} />
                   </Switch>
                   <Switch>
+                    <PrivateRoute exact path="/financial-statement" component={FinancialStatement} />
+                  </Switch>
+                  <Switch>
                     <PrivateRoute exact path="/map" component={Container} />
                   </Switch>
                   <Switch>
-                    <PrivateRoute
-                      exact
-                      path="/create-profile"
-                      component={CreateProfile}
-                    />
+                    <PrivateRoute exact path="/create-profile" component={CreateProfile} />
                   </Switch>
                   <Switch>
-                    <PrivateRoute
-                      exact
-                      path="/edit-profile"
-                      component={EditProfile}
-                    />
+                    <PrivateRoute exact path="/edit-profile" component={EditProfile} />
                   </Switch>
                   <Switch>
-                    <PrivateRoute
-                      exact
-                      path="/add-experience"
-                      component={AddExperience}
-                    />
+                    <PrivateRoute exact path="/add-experience" component={AddExperience} />
                   </Switch>
                   <Switch>
-                    <PrivateRoute
-                      exact
-                      path="/add-education"
-                      component={AddEducation}
-                    />
+                    <PrivateRoute exact path="/add-education" component={AddEducation} />
                   </Switch>
                   <Switch>
                     <PrivateRoute exact path="/feed" component={Posts} />
@@ -114,9 +102,6 @@ class App extends Component {
               </main>
               <Footer />
             </div>
-            
-            
-            
           </div>
         </Router>
       </Provider>

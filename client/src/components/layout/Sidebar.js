@@ -32,16 +32,16 @@ class Sidebar extends Component {
           Main
         </li>
         <li className="sidebar-item">
-          <Link className="sidebar-link" to="/business">
+          <Link className="sidebar-link" to="/dashboard">
             {dashboardIcon}
             <span className="align-middle">Dashboard</span>
             <span className="sidebar-badge badge badge-primary">6</span>
           </Link>
         </li>
         <li className="sidebar-item">
-          <Link className="sidebar-link" to="/selfDevelopment">
-            {dashboardIcon}
-            Self Development
+          <Link className="sidebar-link" to="/financial-statement">
+            <i className="fas fa-money-check-alt"></i>
+            Financial Statement
           </Link>
         </li>
         <li className="sidebar-item">

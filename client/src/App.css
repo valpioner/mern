@@ -85,15 +85,16 @@ html, body, #root, .App {
   max-width: 220px;
   min-height: 100vh;
   transition: margin .4s ease-in-out;
-  z-index: 2
+  z-index: 2;
 }
 
 .sidebar,.sidebar-content {
-  background: #303745
+  background: #303745;
+  overflow: hidden!important;
 }
 
 .sidebar-sticky .sidebar-nav {
-  padding-bottom: 0
+  padding-bottom: 0;
 }
 
 .sidebar-sticky .sidebar-content {
@@ -102,7 +103,7 @@ html, body, #root, .App {
   position: fixed;
   top: 0;
   z-index: 2;
-  width: 220px
+  width: 220px;
 }
 
 .sidebar-nav {
@@ -700,3 +701,103 @@ img {
   background-image: url("img/user.jpg");
   background-size: cover;
 }
+
+/* Financial Statement ---------------------------------------------------------------------------------------------- */
+
+.financial-statement-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.financial-statement {
+  /* height: 250px; */
+  /* background-color: #08ab89; */
+  display: flex;
+}
+
+.balance-sheet {
+  /* height: 250px; */
+  /* background-color: darkcyan; */
+}
+
+.statement-section {
+  flex: 1;
+  margin-right: 15px;
+}
+
+.section-header {
+  color: #ced4da;
+  background: #484f5e;
+  width: 100%;
+
+  line-height: 1;
+  align-items: center;
+  border-radius: 15px;
+}
+
+.section-header__number {
+  font-size: 1.5rem;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  margin: -1px;
+
+  border: 1px solid #f0f0f0;
+  border-radius: 15px;
+  background: #f0f0f0;
+  color: #484f5e;
+}
+
+.section-header__text {
+  padding-left: 10px;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+.section-content {
+  padding: 0 12px;
+}
+
+.statement-summary {
+  border: 1px solid #484f5e;
+  border-radius: 15px;
+}
+
+.statement-header {
+  margin-left: 15px;
+  font-weight: 400;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0,0,0,.075);
+  cursor: pointer;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+.statement-summary {
+  display: flex;
+}
+
+.summary-content {
+  display: flex;
+  margin: 0 auto;
+  align-self: center;
+}
+
+.statement-summary .input-group-append .input-group-text {
+  width: 40px;
+}
+
+.statement-summary input {
+  /* width: 150px; */
+}
+
+
+
+
+
+/* Dropdown menu ---------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------------ */
+
+

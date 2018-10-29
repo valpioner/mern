@@ -67,9 +67,11 @@ class Sidebar extends Component {
     );
 
     return (
-      <nav className="sidebar">
-        {logo}
-        {links}
+      <nav className="sidebar sidebar-sticky">
+        <div className="sidebar-content">
+          {logo}
+          {links}
+        </div>
       </nav>
     );
   }

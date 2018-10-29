@@ -19,6 +19,7 @@ import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
+import LifeWheel from "./components/self-development/LifeWheel";
 import FinancialStatement from "./components/financial-statement/FinancialStatement";
 import CreateProfile from "./components/create-profile/CreateProfile";
 import EditProfile from "./components/edit-profile/EditProfile";
@@ -96,6 +97,9 @@ class App extends Component {
                   </Switch>
                   <Switch>
                     <PrivateRoute exact path="/post/:id" component={Post} />
+                  </Switch>
+                  <Switch>
+                    <PrivateRoute exact path="/life-wheel" component={LifeWheel} />
                   </Switch>
                   <Route exact path="/not-found" component={NotFound} />
                 </div>

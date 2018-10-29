@@ -5,6 +5,7 @@ import profileReducer from './profileReducer';
 import postReducer from './postReducer';
 import mapReducer from './mapReducer';
 import financialStatementReducer from './financialStatementReducer';
+import lifeWheelReducer from './lifeWheelReducer';
 
 export default combineReducers({
   auth: authReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   profile: profileReducer,
   post: postReducer,
   map: mapReducer,
-  financialStatement: financialStatementReducer
+  financialStatement: financialStatementReducer,
+  lifeWheel: lifeWheelReducer
 });

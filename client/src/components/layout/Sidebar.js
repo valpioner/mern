@@ -45,6 +45,17 @@ class Sidebar extends Component {
           </Link>
         </li>
         <li className="sidebar-item">
+          <Link className="sidebar-link collapsed" to="/self-development" data-toogle="#selfDevelopmentSubMenu" data-toggle="collapse" data-target="#selfDevelopmentSubMenu">
+            <i className="fas fa-user-graduate"></i>
+            Self Development
+          </Link>
+          <ul id="selfDevelopmentSubMenu" className="sidebar-dropdown list-unstyled collapse">
+            <li className="sidebar-item">
+              <Link className="sidebar-link" to="/life-wheel">Life Wheel</Link>
+            </li>
+          </ul>
+        </li>
+        <li className="sidebar-item">
           <Link className="sidebar-link collapsed" to="/travel" data-toogle="#travelSubMenu" data-toggle="collapse" data-target="#travelSubMenu">
             <i className="fas fa-globe-americas"></i>
             Travel

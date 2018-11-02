@@ -78,6 +78,7 @@ class Sidebar extends Component {
     );
 
     return (
+      !isAuthenticated ? '' : 
       <nav className="sidebar sidebar-sticky">
         <div className="sidebar-content">
           {logo}

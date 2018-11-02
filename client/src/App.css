@@ -9,12 +9,9 @@ html, body, #root, .App {
   /* flex-direction: column; */
 }
 
-main {  
-  background-color: #f0f0f0;
-}
-
-.main {
+main, .main {  
   width: 100%;
+  background-color: #f0f0f0;
 }
 
 .content {
@@ -880,6 +877,64 @@ img {
 
 /* ------------------------------------------------------------------------------------------------------------------ */
 
+.fas.user-pic {
+  font-size: 58pt;
+  width: inherit;
+  height: inherit;
+  /* margin-left: -40px; */
+}
 
+a {
+  color: #08ab89;
+  text-decoration: none;
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects
+}
 
+a:hover {
+  color: #099280;
+  text-decoration: underline
+}
 
+.btn-primary {
+  color: #fff;
+  background-color: #08ab89;
+  border-color: #08ab89;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #0a9e8a;
+  border-color: #099280;
+}
+
+.btn-primary.focus,.btn-primary:focus {
+  box-shadow: 0 0 0 .1rem rgba(12,194,170,.5);
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus,.btn-primary:not(:disabled):not(.disabled):active:focus,.show>.btn-primary.dropdown-toggle:focus {
+  box-shadow: 0 0 0 .1rem rgba(12,194,170,.5);
+  background-color: #0a9e8a;
+  border-color: #099280;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {   
+  border-color: rgba(15,174,142, 0.5);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.3);
+  outline: 0 none;
+}

@@ -21,7 +21,7 @@ class FinancialStatement extends Component {
       content = <Spinner />;
     } else {
       // Check if logged in user has financial statement data
-      if (Object.keys(statement).length > 0) {
+      if (/*Object.keys(statement).length > 0*/false) {
         content = (
           <div>
             <p className="lead text-muted">

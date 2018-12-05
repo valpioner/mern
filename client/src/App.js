@@ -61,10 +61,12 @@ class App extends Component {
       <Provider store={store}>
         <Router>
           <div className="App">
-            <Sidebar />
-            <div className="main">
+            {/* <Sidebar /> */}
               <Navbar />
+            <div className="main">
               <main>
+                <Sidebar />
+
                 <Route exact path="/" component={Landing} />
                 <div className=/*"route-container"*/"content">
                   <Route exact path="/register" component={Register} />

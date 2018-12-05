@@ -6,7 +6,7 @@ html, body, #root, .App {
 .App {
   color: #474D5D;
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
 }
 
 main, .main {  
@@ -14,8 +14,21 @@ main, .main {
   background-color: #f0f0f0;
 }
 
+main {
+  display: flex;
+}
+
 .content {
-  padding: 1.5rem;
+  /* padding: 1.5rem; */
+}
+
+footer {
+  background-color: #000;
+  color: white;
+}
+
+.user-status {
+  display: flex;
 }
 
 /* Colors: -----------------------------------------------------------------------------------------------------------*/
@@ -87,13 +100,13 @@ main, .main {
 .sidebar {
   min-width: 220px;
   max-width: 220px;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   transition: margin .4s ease-in-out;
   z-index: 2;
 }
 
 .sidebar,.sidebar-content {
-  background: #303745;
+  background: #1F1F1F;
   overflow: hidden!important;
 }
 
@@ -103,9 +116,9 @@ main, .main {
 
 .sidebar-sticky .sidebar-content {
   overflow-y: scroll;
-  height: 100vh;
-  position: fixed;
-  top: 0;
+  /* height: 100vh; */
+  /* position: fixed;
+  top: 0; */
   z-index: 2;
   width: 220px;
 }
@@ -113,7 +126,7 @@ main, .main {
 .sidebar-nav {
   padding-bottom: 3.5rem;
   padding-left: 0;
-  list-style: none
+  list-style: none;
 }
 
 .sidebar-link .feather,.sidebar-link svg,.sidebar-link .fas {
@@ -125,30 +138,31 @@ main, .main {
   display: block;
   padding: .75rem 1.25rem;
   color: #ced4da;
-  background: #303745;
+  background: #1F1F1F;
   transition: background .1s ease-in-out,color .1s ease-in-out;
   position: relative;
   text-decoration: none;
 }
 
 .sidebar-link:focus {
-  outline: 0
+  outline: 0;
+  text-decoration: none;
 }
 
 .sidebar-item.active .sidebar-link:hover,.sidebar-link:hover {
   color: #ced4da;
-  background: #484f5e
+  background: rgb(26, 26, 26);
 }
 
 .sidebar-dropdown .sidebar-link {
   padding-left: 2.5rem;
   color: #adb5bd;
-  background: #2a303c;
+  background: #292929;
 }
 
 .sidebar-dropdown .sidebar-item.active .sidebar-link,.sidebar-dropdown .sidebar-link:hover {
   color: #e9ecef;
-  background: #484f5e
+  background: rgb(26, 26, 26);
 }
 
 .sidebar [data-toggle=collapse] {
@@ -173,6 +187,16 @@ main, .main {
   -webkit-transform: rotate(-135deg);
   transform: rotate(-135deg);
   top: 1.4rem
+}
+
+.user-status {
+  margin: 15px 20px;
+  align-items: center;
+  color: white;
+}
+
+.svg-inline--fa {
+  width: 7px;
 }
 
 .sidebar-brand {
@@ -528,11 +552,19 @@ img {
 }
 /* #152028 */
 .landing {
-  position: relative;
-  background: url('./img/showcase.jpg') no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
+  /* position: relative; */
+  /* background: url('./img/showcase.jpg') no-repeat; */
+  /* background-size: cover;
+  background-position: center; */
+  /* height: 100vh; */
+}
+
+.landing-header {
+  background-color: #000;
+}
+
+.landing-top-5 {
+  background-color: #E1E1E1;
 }
 
 .landing-inner {

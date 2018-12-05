@@ -68,7 +68,7 @@ class Navbar extends Component {
 
     return (
       !isAuthenticated ? '' :
-      <nav className="navbar navbar-expand-sm navbar-light bg-white">
+      <nav className="navbar navbar-expand-sm">
         <a className="sidebar-toggle d-flex mr-2">
           <i className="hamburger align-self-center"></i>
         </a>

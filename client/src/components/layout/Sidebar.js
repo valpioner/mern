@@ -18,12 +18,31 @@ class Sidebar extends Component {
     const logo = (
       <a className="sidebar-brand" href="#">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-box align-middle"><path d="M12.89 1.45l8 4A2 2 0 0 1 22 7.24v9.53a2 2 0 0 1-1.11 1.79l-8 4a2 2 0 0 1-1.79 0l-8-4a2 2 0 0 1-1.1-1.8V7.24a2 2 0 0 1 1.11-1.79l8-4a2 2 0 0 1 1.78 0z"></path><polyline points="2.32 6.16 12 11 21.68 6.16"></polyline><line x1="12" y1="22.76" x2="12" y2="11"></line></svg>
-        <span className="align-middle">F u t u r e</span>
+        <span className="align-middle">Beauty Zone</span>
       </a>
     );
 
     const dashboardIcon = (
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-sliders align-middle"><line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line><line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line><line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line><line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line><line x1="17" y1="16" x2="23" y2="16"></line></svg>
+    );
+
+    const onlineIcon = (
+      <svg className="svg-inline--fa fa-circle fa-w-16 text-success" aria-hidden="true" data-prefix="fas" data-icon="circle" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8z"></path></svg>
+    );
+
+    const userStatus = (
+      <div className="user-status">
+        <img
+          className="avatar img-fluid rounded-circle mr-3"
+          src={user.avatar}
+          alt={user.name}
+          title={user.name}
+        />
+        <div className="">
+          <h5 className="mb-1 text-white">{user.name}</h5>
+          {onlineIcon} <small className="ml-1">Online</small>
+        </div>
+      </div>
     );
 
     const links = (
@@ -34,9 +53,56 @@ class Sidebar extends Component {
         <li className="sidebar-item">
           <Link className="sidebar-link" to="/dashboard">
             {dashboardIcon}
-            <span className="align-middle">Dashboard</span>
+            <span className="align-middle">Profile</span>
+          </Link>
+        </li>
+        <li className="sidebar-item">
+          <Link className="sidebar-link" to="/dashboard">
+            {dashboardIcon}
+            <span className="align-middle">My services</span>
+          </Link>
+        </li>
+        <li className="sidebar-item">
+          <Link className="sidebar-link" to="/dashboard">
+            {dashboardIcon}
+            <span className="align-middle">Messages</span>
             <span className="sidebar-badge badge badge-primary">6</span>
           </Link>
+        </li>
+        <li className="sidebar-item">
+          <Link className="sidebar-link" to="/dashboard">
+            {dashboardIcon}
+            <span className="align-middle">History</span>
+          </Link>
+        </li>
+        <li className="sidebar-item">
+          <Link className="sidebar-link" to="/dashboard">
+            {dashboardIcon}
+            <span className="align-middle">Comments</span>
+          </Link>
+        </li>
+        <li className="sidebar-item">
+          <Link className="sidebar-link" to="/dashboard">
+            {dashboardIcon}
+            <span className="align-middle">Favourite</span>
+          </Link>
+        </li>
+        <li className="sidebar-item">
+          <Link className="sidebar-link" to="/dashboard">
+            {dashboardIcon}
+            <span className="align-middle">Last event</span>
+          </Link>
+        </li>
+        <li className="sidebar-item">
+          <Link className="sidebar-link" to="/dashboard">
+            {dashboardIcon}
+            <span className="align-middle">Settings</span>
+          </Link>
+        </li>
+        <br/>
+
+        <li className="sidebar-header">
+          Submenus
         </li>
         <li className="sidebar-item">
           <Link className="sidebar-link" to="/financial-statement">
@@ -78,13 +144,14 @@ class Sidebar extends Component {
     );
 
     return (
-      !isAuthenticated ? '' : 
-      <nav className="sidebar sidebar-sticky">
-        <div className="sidebar-content">
-          {logo}
-          {links}
-        </div>
-      </nav>
+      !isAuthenticated ? '' :
+        <nav className="sidebar sidebar-sticky">
+          <div className="sidebar-content">
+            {/* {logo} */}
+            {userStatus}
+            {links}
+          </div>
+        </nav>
     );
   }
 }

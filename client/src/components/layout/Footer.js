@@ -7,9 +7,19 @@ class Footer extends Component {
     const hideFooter = this.props.location.pathname === '/login' || this.props.location.pathname === '/register'
     return (
       hideFooter ? '' :
-      <footer className="color--gray2 color--text-light p-3 text-center">
-        Copyright &copy; {new Date().getFullYear()} | FUTURE
-      </footer>
+        <footer className="">
+          <div className="container">
+            <div className="footer-menu pb-5 pt-5">Menu</div>
+            <div className="footer-copyright pb-3">
+              <span className="legal mr-5">
+                &copy; {new Date().getFullYear()} Terms
+              </span>
+              <span className="social">
+                vk, f, t, i
+              </span>
+            </div>
+          </div>
+        </footer>
     );
   }
 }

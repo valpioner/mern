@@ -13,7 +13,34 @@ class Landing extends Component {
   render() {
     return (
       <div className="landing">
-        <div className="dark-overlay landing-inner text-light">
+        <div className="landing-header pt-5 pb-5">
+          <div className="container">
+
+          <Link to="/login" className="btn btn btn-light">
+            Login
+          </Link>
+          <Link to="/register" className="btn btn btn-info mr-2">
+            Sign Up
+          </Link>
+          <br/>
+          <br/>
+          <br/>
+          Header
+          
+          </div>
+        </div>
+
+        <div className="landing-services pt-5 pb-5">
+          <div className="container">Services</div>
+        </div>
+
+        <div className="landing-top-5 pt-5 pb-5">
+          <div className="container">Top 5</div>
+        </div>
+
+
+
+        {/* <div className="dark-overlay landing-inner text-light">
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
@@ -33,7 +60,7 @@ class Landing extends Component {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     );
   }

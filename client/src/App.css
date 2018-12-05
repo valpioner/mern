@@ -310,8 +310,9 @@ html[data-useragent*="MSIE 10.0"] .toggled.sidebar-collapsed {
 /* Navbar: ---------------------------------------------------------------------------------------------------------- */
 
 .navbar {
-  border-bottom: 1px solid #dee2e6;
-  box-shadow: 0 .05rem .2rem rgba(0,0,0,.05)
+  /* border-bottom: 1px solid #dee2e6; */
+  box-shadow: 0 .05rem .2rem rgba(0,0,0,.05);
+  background-color: #000;
 }
 
 .navbar-brand {

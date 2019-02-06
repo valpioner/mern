@@ -17,8 +17,7 @@ class MapContainer extends Component {
   // }
   render() {
     return (
-      <Map google={this.props.google}
-        style={{ height: '100%', position: 'relative', width: '100%' }}/>
+      <Map google={this.props.google} style={{ height: '100%', position: 'relative', width: '100%' }}/>
     )
   }
 }

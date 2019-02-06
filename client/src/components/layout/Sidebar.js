@@ -31,6 +31,7 @@ class Sidebar extends Component {
         <li className="sidebar-header">
           Main
         </li>
+
         <li className="sidebar-item">
           <Link className="sidebar-link" to="/dashboard">
             {dashboardIcon}
@@ -38,23 +39,7 @@ class Sidebar extends Component {
             <span className="sidebar-badge badge badge-primary">6</span>
           </Link>
         </li>
-        <li className="sidebar-item">
-          <Link className="sidebar-link" to="/financial-statement">
-            <i className="fas fa-money-check-alt"></i>
-            Financial Statement
-          </Link>
-        </li>
-        <li className="sidebar-item">
-          <Link className="sidebar-link collapsed" to="/self-development" data-toogle="#selfDevelopmentSubMenu" data-toggle="collapse" data-target="#selfDevelopmentSubMenu">
-            <i className="fas fa-user-graduate"></i>
-            Self Development
-          </Link>
-          <ul id="selfDevelopmentSubMenu" className="sidebar-dropdown list-unstyled collapse">
-            <li className="sidebar-item">
-              <Link className="sidebar-link" to="/life-wheel">Life Wheel</Link>
-            </li>
-          </ul>
-        </li>
+
         <li className="sidebar-item">
           <Link className="sidebar-link collapsed" to="/travel" data-toogle="#travelSubMenu" data-toggle="collapse" data-target="#travelSubMenu">
             <i className="fas fa-globe-americas"></i>
@@ -69,11 +54,9 @@ class Sidebar extends Component {
             <li className="sidebar-item">
               <Link className="sidebar-link" to="/map">Menu 2</Link>
             </li>
-            <li className="sidebar-item">
-              <Link className="sidebar-link" to="/map">Menu 3</Link>
-            </li>
           </ul>
         </li>
+
       </ul>
     );
 

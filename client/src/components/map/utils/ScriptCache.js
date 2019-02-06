@@ -22,9 +22,7 @@ export const ScriptCache = (function(global) {
       if (!scriptMap.has(key)) {
         let tag = document.createElement('script');
         let promise = new Promise((resolve, reject) => {
-          let resolved = false,
-              errored = false,
-              body = document.getElementsByTagName('body')[0];
+          let body = document.getElementsByTagName('body')[0];
 
           tag.type = 'text/javascript';
           tag.async = false; // Load in order

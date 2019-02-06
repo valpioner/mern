@@ -7,7 +7,6 @@
     "bootstrap": "^4.2.1",
     "chart.js": "^2.7.3",
     "classnames": "^2.2.6",
-    "google-maps-react": "^2.0.2",
     "jquery": "^3.3.1",
     "jwt-decode": "^2.2.0",
     "moment": "^2.24.0",

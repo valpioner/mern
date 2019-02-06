@@ -11,6 +11,8 @@ import InputGroup from '../common/InputGroup';
 import TripForm from './TripForm';
 import TripCard from './TripCard';
 
+import './map-menu.scss';
+
 class MapMenu extends Component {
   constructor(props) {
     super(props);

@@ -7,6 +7,8 @@ import { getUserTrips } from '../../actions/mapActions';
 import Spinner from '../common/Spinner';
 import MapMenu from "./MapMenu";
 
+import './map.scss';
+
 class Map extends Component {
   constructor(props) {
     super(props);

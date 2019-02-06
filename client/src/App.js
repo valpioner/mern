@@ -32,7 +32,7 @@ import Post from "./components/post/Post";
 import NotFound from "./components/not-found/NotFound";
 
 import "./App.css";
-import Container from "./components/map/Container";
+import MapContainer from "./components/map/MapContainer";
 
 // Check for token
 if (localStorage.jwtToken) {
@@ -65,44 +65,24 @@ class App extends Component {
             <div className="main">
               <Navbar />
               <main>
-                <Route exact path="/" component={Landing} />
-                <div className=/*"route-container"*/"content">
-                  <Route exact path="/register" component={Register} />
-                  <Route exact path="/login" component={Login} />
-                  <Route exact path="/profiles" component={Profiles} />
-                  <Route exact path="/profile/:handle" component={Profile} />
-                  <Switch>
-                    <PrivateRoute exact path="/dashboard" component={Dashboard} />
-                  </Switch>
-                  <Switch>
-                    <PrivateRoute exact path="/financial-statement" component={FinancialStatement} />
-                  </Switch>
-                  <Switch>
-                    <PrivateRoute exact path="/map" component={Container} />
-                  </Switch>
-                  <Switch>
-                    <PrivateRoute exact path="/create-profile" component={CreateProfile} />
-                  </Switch>
-                  <Switch>
-                    <PrivateRoute exact path="/edit-profile" component={EditProfile} />
-                  </Switch>
-                  <Switch>
-                    <PrivateRoute exact path="/add-experience" component={AddExperience} />
-                  </Switch>
-                  <Switch>
-                    <PrivateRoute exact path="/add-education" component={AddEducation} />
-                  </Switch>
-                  <Switch>
-                    <PrivateRoute exact path="/feed" component={Posts} />
-                  </Switch>
-                  <Switch>
-                    <PrivateRoute exact path="/post/:id" component={Post} />
-                  </Switch>
-                  <Switch>
-                    <PrivateRoute exact path="/life-wheel" component={LifeWheel} />
-                  </Switch>
-                  <Route exact path="/not-found" component={NotFound} />
-                </div>
+                <Route exact path="/" component={ Landing } />
+                <Switch><PrivateRoute exact path="/map" component={ MapContainer } /></Switch>
+                {/* <div className="content"> */}
+                  <Route exact path="/register" component={ Register } />
+                  <Route exact path="/login" component={ Login } />
+                  <Route exact path="/profiles" component={ Profiles } />
+                  <Route exact path="/profile/:handle" component={ Profile } />
+                  <Switch><PrivateRoute exact path="/dashboard" component={ Dashboard } /></Switch>
+                  <Switch><PrivateRoute exact path="/financial-statement" component={ FinancialStatement } /></Switch>
+                  <Switch><PrivateRoute exact path="/create-profile" component={ CreateProfile } /></Switch>
+                  <Switch><PrivateRoute exact path="/edit-profile" component={ EditProfile } /></Switch>
+                  <Switch><PrivateRoute exact path="/add-experience" component={ AddExperience } /></Switch>
+                  <Switch><PrivateRoute exact path="/add-education" component={ AddEducation } /></Switch>
+                  <Switch><PrivateRoute exact path="/feed" component={ Posts } /></Switch>
+                  <Switch><PrivateRoute exact path="/post/:id" component={ Post } /></Switch>
+                  <Switch><PrivateRoute exact path="/life-wheel" component={ LifeWheel } /></Switch>
+                  <Route exact path="/not-found" component={ NotFound } />
+                {/* </div> */}
               </main>
               <Footer />
             </div>

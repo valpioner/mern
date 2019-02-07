@@ -1,16 +1,15 @@
-/* Sidebar: --------------------------------------------------------------------------------------------------------- */
+@import '../../scss/const.scss';
 
 .sidebar {
-  min-width: 220px;
-  max-width: 220px;
+  min-width: 14rem;
+  max-width: 14rem;
   min-height: 100vh;
   transition: margin .4s ease-in-out;
-  z-index: 2;
-}
 
-.sidebar,.sidebar-content {
-  background: #303745;
-  overflow: hidden!important;
+  .sidebar-content {
+    background: $gray1;
+    overflow: hidden !important;
+  }
 }
 
 .sidebar-sticky .sidebar-nav {
@@ -23,7 +22,7 @@
   position: fixed;
   top: 0;
   z-index: 2;
-  width: 220px;
+  width: 14rem;
 }
 
 .sidebar-nav {
@@ -116,19 +115,15 @@
   margin-right: .375rem
 }
 
-.sidebar-toggle {
-  cursor: pointer;
-  width: 26px;
-  height: 26px
-}
+
 
 .sidebar:not(.sidebar-collapsed).toggled {
-  margin-left: -220px
+  margin-left: -14rem
 }
 
 @media (min-width: 1px) and (max-width:767.98px) {
   .sidebar:not(.sidebar-collapsed) {
-      margin-left:-220px
+      margin-left:-14rem
   }
 
   .sidebar:not(.sidebar-collapsed).toggled {
@@ -137,7 +132,7 @@
 }
 
 .sidebar-collapsed.toggled {
-  margin-left: -220px
+  margin-left: -14rem
 }
 
 .sidebar-header {
@@ -154,14 +149,14 @@
   bottom: 0;
   position: fixed;
   background: #2a303c;
-  min-width: 220px;
-  max-width: 220px;
+  min-width: 14rem;
+  max-width: 14rem;
   color: #e9ecef;
   z-index: 3
 }
 
 /* .sidebar.toggled .sidebar-bottom {
-  margin-left: -220px
+  margin-left: -14rem
 } */
 
 .sidebar-badge {
@@ -171,7 +166,7 @@
 }
 
 /* html[data-useragent*="MSIE 10.0"] .main {
-  width: calc(100% - 220px)
+  width: calc(100% - 14rem)
 }
 
 html[data-useragent*="MSIE 10.0"] .sidebar-toggle {
@@ -179,8 +174,8 @@ html[data-useragent*="MSIE 10.0"] .sidebar-toggle {
 }
 
 html[data-useragent*="MSIE 10.0"] .sidebar {
-  width: 220px!important;
-  min-width: 220px!important;
+  width: 14rem!important;
+  min-width: 14rem!important;
   margin-left: 0!important
 }
 

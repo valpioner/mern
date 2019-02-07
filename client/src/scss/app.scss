@@ -15,7 +15,7 @@ body {
 }
 
 .App {
-  color: #474D5D;
+  color: $text-dark;
   display: flex;
 }
 
@@ -30,9 +30,6 @@ main, .main {
   height: 18px;
 }
 
-
-
-
 .badge-primary {
   color: #fff;
   background-color: #08ab89;
@@ -45,27 +42,6 @@ main, .main {
 
 img {
   width: 100%;
-}
-/* #152028 */
-.landing {
-  position: relative;
-  // background: url('./img/showcase.jpg') no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-}
-
-.landing-inner {
-  padding-top: 80px;
-}
-
-.dark-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 .card-form {
@@ -303,13 +279,6 @@ img {
 }
 
 /* ------------------------------------------------------------------------------------------------------------------ */
-
-.fas.user-pic {
-  font-size: 58pt;
-  width: inherit;
-  height: inherit;
-  /* margin-left: -40px; */
-}
 
 a {
   color: #08ab89;

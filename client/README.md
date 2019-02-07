@@ -1,5 +1,6 @@
-https://coursehu nters .net/course/mern-stack-front -to-back-full-stack-react-redux-node-js
-//THeme: https://appst ack.bootla b.io/icons-font-awesome.html
+// https://coursehu nters .net/course/mern-stack-front -to-back-full-stack-react-redux-node-js
+// THeme: https://appst ack.bootla b.io/icons-font-awesome.html
+// Green Color theme: http://www. bitpubl imedia. ro/themes/sapphire-wp/services/
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 

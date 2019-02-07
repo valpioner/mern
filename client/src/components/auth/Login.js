@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import { loginUser } from "../../actions/authActions";
 import TextFieldGroup from "../common/TextFieldGroup";
 
+import './auth.scss';
+
 class Login extends Component {
   constructor() {
     super();

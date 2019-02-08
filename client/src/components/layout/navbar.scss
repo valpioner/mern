@@ -1,220 +1,213 @@
 @import '../../scss/const.scss';
 
-/* Navbar: ---------------------------------------------------------------------------------------------------------- */
-
 .navbar {
   border-bottom: 1px solid $gray-border;
-  box-shadow: 0 .05rem .2rem rgba(0,0,0,.05);
+  box-shadow: 0 .05rem .2rem rgba(0,0,0,.05);  
 
-  .nav-icon {
-    padding: .1rem .75rem;
-    display: block;
-    font-size: 1.5rem;
-    color: $text-dark-alt;
-    transition: background .1s ease-in-out,color .1s ease-in-out;
-
-    &:after {
-      display: none;
-    }
-
-    &:active, &:hover {
-      color: $green2;
-    }
-  }
-
-  .indicator {
-    background: $green2;
-    box-shadow: 0 .1rem .2rem rgba(0,0,0,.05);
-    border-radius: 50%;
-    display: block;
-    height: 18px;
-    width: 18px;
-    padding: 1px;
-    position: absolute;
-    top: 0;
-    right: -8px;
-    text-align: center;
-    transition: top .1s ease-out;
-    font-size: .675rem;
-    color: $white;
-  }
+  .sidebar-toggler {
+    cursor: pointer;
+    width: 2rem;
+    height: 2rem;
   
-  // .nav-item {
-  //   &:hover .indicator {
-  //     top: -4px;
-  //   }
-
-  //   a:focus {
-  //     outline: 0;
-  //   }
-  // }
-}
-
-@media (max-width: $sm-and-down) {
-  .navbar {
-      padding:.75rem;
-  }
-
-  .nav-icon {
-      padding: .1rem .75rem;
-  }
-
-  .dropdown,.dropleft,.dropright,.dropup {
-      position: inherit;
-  }
-
-  .navbar-expand .navbar-nav .dropdown-menu-lg {
-      min-width: 100%
-  }
-
-  .nav-item .nav-link:after {
-      display: none
-  }
-}
-
-.navbar-expand .navbar-collapse {
-  display: -ms-flexbox!important;
-  display: flex!important;
-  -ms-flex-preferred-size: auto;
-  flex-basis: auto;
-}
-
-.avatar {
-  margin-top: -15px;
-  margin-bottom: -15px;
-  width: 40px;
-  height: 40px;
-}
-
-/* Hamburger--------------------------------------------------------------------------------------------------------- */
-
-.sidebar-toggler {
-  cursor: pointer;
-  width: 2rem;
-  height: 2rem;
-
-  &:hover .hamburger,
-  &:hover .hamburger:after,
-  &:hover .hamburger:before {
-    background: $green2;
-  }
-
-  .hamburger {
-    position: relative;
-  
-    &, &:after, &:before {
-      border-radius: 1px;
-      height: 3px;
-      width: 24px;
-      background: #495057;
-      display: block;
-      content: "";
-      transition: background .1s ease-in-out,color .1s ease-in-out;
+    &:hover .hamburger,
+    &:hover .hamburger:after,
+    &:hover .hamburger:before {
+      background: $green2;
     }
   
-    &:before {
-      top: -7.5px;
-      width: 18px;
-      position: absolute
-    }
-  
-    &:after {
-      bottom: -7.5px;
-      width: 14px;
-      position: absolute
-    }
-  }
-}
-
-/* Dropdown menu ---------------------------------------------------------------------------------------------------- */
-
-.dropdown-toggle:after {
-  border: solid;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: 2px;
-  -webkit-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-.dropdown-menu {
-  font-size: .875rem;
-
-  @-webkit-keyframes dropdownAnimation {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(-8px);
-        transform: translateY(-8px);
-    }
-  
-    to {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-  }
-  
-  @keyframes dropdownAnimation {
-    0% {
-        opacity: 0;
-        -webkit-transform: translateY(-8px);
-        transform: translateY(-8px);
-    }
-  
-    to {
-        opacity: 1;
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-  }
-
-  &.show {
-    -webkit-animation-name: dropdownAnimation;
-    animation-name: dropdownAnimation;
-    -webkit-animation-duration: .5s;
-    animation-duration: .5s;
-    -webkit-animation-iteration-count: 1;
-    animation-iteration-count: 1;
-    -webkit-animation-timing-function: ease;
-    animation-timing-function: ease;
-    -webkit-animation-fill-mode: forwards;
-    animation-fill-mode: forwards;
-  }
-
-  &.dropdown-menu-lg {
-    min-width: 20rem;
-  }
-
-  .dropdown-item {
-    transition: background .1s ease-in-out,color .1s ease-in-out;
-  }
-
-  .dropdown-menu-header {
-    padding: .75rem;
-    text-align: center;
-    font-weight: 600;
-    border-bottom: 1px solid $gray-border;
-  }
-  
-  .dropdown-menu-footer {
-    padding: .5rem;
-    text-align: center;
-    display: block;
-    font-size: .75rem;
-  }
-
-  a, a:hover {
-    color: $text-dark;
-  }
-
-  .list-group {
-    .list-group-item {
-      border-width: 0 0 1px;
-      margin-bottom: 0;
-
-      &:hover {
-        background: #f8f9fa;
+    .hamburger {
+      position: relative;
+    
+      &, &:after, &:before {
+        border-radius: 1px;
+        height: 3px;
+        width: 24px;
+        background: $gray2;
+        display: block;
+        content: "";
+        transition: background .1s ease-in-out,color .1s ease-in-out;
       }
+    
+      &:before {
+        top: -7.5px;
+        width: 18px;
+        position: absolute
+      }
+    
+      &:after {
+        bottom: -7.5px;
+        width: 14px;
+        position: absolute
+      }
+    }
+  }
+
+  .nav-item {   
+    .nav-icon {
+      padding: .1rem .75rem;
+      display: block;
+      font-size: 1.5rem;
+      color: $text-dark-alt;
+      transition: background .1s ease-in-out,color .1s ease-in-out;
+
+      &:hover .indicator {
+        top: -4px;
+      }
+  
+      &:after {
+        display: none;
+      }
+  
+      &:active, &:hover {
+        color: $green2;
+      }
+  
+      .indicator {
+        background: $green2;
+        box-shadow: 0 .1rem .2rem rgba(0,0,0,.05);
+        border-radius: 50%;
+        display: block;
+        height: 18px;
+        width: 18px;
+        padding: 1px;
+        position: absolute;
+        top: 0;
+        right: -8px;
+        text-align: center;
+        transition: top .1s ease-out;
+        font-size: .675rem;
+        color: $white;
+      }
+    }
+
+    .nav-link {
+      .avatar {
+        margin-top: -15px;
+        margin-bottom: -15px;
+        width: 40px;
+        height: 40px;
+      }
+
+      &.dropdown-toggle .d-inline-block {
+        display: none !important;
+      }
+
+      &.dropdown-toggle:after {
+        border: solid;
+        border-width: 0 2px 2px 0;
+        display: inline-block;
+        padding: 2px;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+    }
+
+    .dropdown-menu {
+      font-size: .875rem;
+    
+      @-webkit-keyframes dropdownAnimation {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(-8px);
+            transform: translateY(-8px);
+        }
+      
+        to {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+      }
+      
+      @keyframes dropdownAnimation {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(-8px);
+            transform: translateY(-8px);
+        }
+      
+        to {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            transform: translateY(0);
+        }
+      }
+    
+      &.show {
+        -webkit-animation-name: dropdownAnimation;
+        animation-name: dropdownAnimation;
+        -webkit-animation-duration: .5s;
+        animation-duration: .5s;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+        -webkit-animation-timing-function: ease;
+        animation-timing-function: ease;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+      }
+    
+      &.dropdown-menu-lg {
+        min-width: 20rem;
+      }
+    
+      .dropdown-item {
+        transition: background .1s ease-in-out,color .1s ease-in-out;
+      }
+    
+      .dropdown-menu-header {
+        padding: .75rem;
+        text-align: center;
+        font-weight: 600;
+        border-bottom: 1px solid $gray-border;
+      }
+      
+      .dropdown-menu-footer {
+        padding: .5rem;
+        text-align: center;
+        display: block;
+        font-size: .75rem;
+      }
+    
+      a, a:hover {
+        color: $text-dark;
+      }
+    
+      .list-group {
+        .list-group-item {
+          border-width: 0 0 1px;
+          margin-bottom: 0;
+    
+          &:hover {
+            background: $text-light-alt;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: $sm-and-down) {
+    & {
+      padding: .75rem;
+
+      .nav-item {
+        .nav-icon {
+          padding: .1rem 1rem;
+        }
+
+        .nav-link.dropdown-toggle {
+          &:after {
+            display: none;
+          }
+
+          .d-inline-block {
+            display: inline-block !important;
+          }
+        }
+      }
+    }
+  
+    .dropdown, .dropleft, .dropright, .dropup {
+      position: inherit;
     }
   }
 }

@@ -1,20 +1,29 @@
 $midnight-blue: #2C3E50;
 $wet-asphalt: #34495E;
-$violet: #9b4dca;
+
 /* Green Color theme: http://www. bitpubl imedia. ro/themes/sapphire-wp/services/ */
-$green1: #0fae8e;
+$green0: #0a9e8a; // primary (:hover)
+$green1: #0fae8e; // primary
 $green2: #0cc2aa;
 $green3: #6fd589;
+
+$violet0: #9b4dca;
+$violet1: #a180da; // badge secondary
+
+$gray0: #2a303c;
 $gray1: #303745;
 $gray2: #484f5e;
 $gray3: #79849b;
+
 $white: #fff;
-$light1: #f6f1ed;
+
 $orange: #FF6300;
 
-$text-light: #d1d1d1;
 $text-dark: #474D5D;
 $text-dark-alt: #6c757d;
+$text-light: #d1d1d1;
+$text-light-alt: #f8f9fa;
+$text-light-alt2: #adb5bd;
 
 $gray-border: #dee2e6;
 

@@ -30,7 +30,7 @@ class Sidebar extends Component {
 
     const links = (
       <ul className="sidebar-nav">
-        <li className="sidebar-header">
+        <li className="sidebar-nav-header">
           Main
         </li>
 
